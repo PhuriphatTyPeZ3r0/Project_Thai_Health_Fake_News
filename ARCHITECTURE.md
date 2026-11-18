@@ -56,35 +56,34 @@ flowchart TD
 การเปลี่ยนจาก Gradio เป็น Next.js ถูกจัดหมวดหมู่อย่างเป็นระเบียบตามหลัก **Clean Architecture & SOLID Principles**:
 
 ### 🎯 2.1 Model Layer (OOP Domain & Service Abstractions)
-- **`NewsEvaluation` (Domain Model Class):** ทำหน้าที่ Encapsulation กฎทางธุรกิจในการตรวจสอบข้อความข่าว (Data Integrity):
+- **`News_Evaluation.ts` (Domain Model Class):** ทำหน้าที่ Encapsulation กฎทางธุรกิจในการตรวจสอบข้อความข่าว (Data Integrity):
   - ตรวจสอบความยาวตัวอักษร (Min 5, Max 2,000)
   - ตรวจสอบช่วงรหัสอักขระภาษาไทย Unicode (`[\u0E00-\u0E7F]`)
   - คลีนข้อความและตัดช่องว่างซ้ำซ้อน (Sanitization)
-- **`IInferenceEngine` (Service Interface):** สร้าง Abstraction สำหรับบริการถอดรหัสโมเดล:
+- **`I_Inference_Engine.ts` (Service Interface):** สร้าง Abstraction สำหรับบริการถอดรหัสโมเดล:
   - `predict(text, modelType): Promise<PredictionResultDTO>`
   - `compare(text): Promise<ModelComparisonDTO>`
   - `checkHealth(): Promise<boolean>`
-- **`ModalFastApiInferenceEngine` (Concrete Class):** จัดการการสื่อสารผ่าน HTTP Client ไปยัง Modal Backend พร้อมระบบ AbortSignal Timeout และ Error Mapping.
-- **`MockInferenceEngine` (Concrete Class):** จำลองผลการทำนายด้วยหลัก Heuristic ภาษาไทย เพื่อรองรับการทำงานแบบ Zero-dependency และ Fallback อัตโนมัติเมื่อบริการระยะไกลขัดข้อง.
-- **`InferenceServiceFactory` (Factory Pattern):** คัดเลือก Engine ที่เหมาะสมโดยอิงตาม Environment Variables.
+- **`Modal_Fast_Api_Inference_Engine.ts` (Concrete Class):** จัดการการสื่อสารผ่าน HTTP Client ไปยัง Modal Backend พร้อมระบบ AbortSignal Timeout และ Error Mapping.
+- **`Mock_Inference_Engine.ts` (Concrete Class):** จำลองผลการทำนายด้วยหลัก Heuristic ภาษาไทย เพื่อรองรับการทำงานแบบ Zero-dependency และ Fallback อัตโนมัติเมื่อบริการระยะไกลขัดข้อง.
+- **`Inference_Service_Factory.ts` (Factory Pattern):** คัดเลือก Engine ที่เหมาะสมโดยอิงตาม Environment Variables.
 
 ### 🎮 2.2 Controller Layer (Request Handlers)
-- **`NewsAnalysisController` (OOP Controller Class):**
+- **`News_Analysis_Controller.ts` (OOP Controller Class):**
   - รับ Request จาก HTTP Layer
   - สร้าง Instance ของ `NewsEvaluation` เพื่อตรวจสอบ
   - สั่งงาน `IInferenceEngine` เพื่อทำนายผลเดี่ยวหรือเปรียบเทียบผลคู่
   - จัดรูปแบบ HTTP Response Code (200 OK, 400 Bad Request, 502 Bad Gateway) และ DTO Format.
-- **`app/api/analyze/route.ts` & `app/api/health/route.ts`:**
+- **`Web/Src/app/api/analyze/route.ts` & `Web/Src/app/api/health/route.ts`:**
   - Route Handlers ของ Next.js App Router ทำหน้าที่เป็นทางผ่านของ Network Protocols ส่งต่อให้ Controller.
 
 ### 🖼️ 2.3 View Layer (Presentation Components)
 - **`page.tsx`:** หน้าควบคุมหลักรวบรวม State และควบคุมการไหลของข้อมูล.
-- **`Navbar.tsx`:** แถบนำทางแสดงข้อมูลรายวิชา 1323404, สถาบัน PIM, และลิงก์ GitHub.
-- **`NewsInputCard.tsx`:** กล่องข้อความพร้อมตัวนับตัวอักษรและปุ่ม Action.
-- **`SampleNewsPresets.tsx`:** ชุดข้อความตัวอย่าง 4 หมวดหมู่ (ข่าวปลอม/ข่าวจริง) ให้ทดสอบใน 1 คลิกตามเกณฑ์ TOR.
-- **`ModelComparisonCard.tsx`:** กล่องเปรียบเทียบผลลัพธ์ของ WangchanBERTa คู่กับ Baseline แบบ Side-by-side แสดง Confidence Bar และ Agreement Status.
-- **`DisclaimerBanner.tsx`:** กล่องข้อความเตือนความรับผิดชอบทางการแพทย์.
-- **`MetricsSummaryModal.tsx`:** Modal แสดงตาราง Accuracy, F1-macro, F1-fake, Precision, Recall, และผลการวิเคราะห์ Error Analysis.
+- **`Nav_Bar.tsx`:** แถบนำทางแสดงข้อมูลรายวิชา 1323404, สถาบัน PIM, และลิงก์ GitHub.
+- **`Sample_News_Presets.tsx`:** ชุดข้อความตัวอย่าง 4 หมวดหมู่ (ข่าวปลอม/ข่าวจริง) ให้ทดสอบใน 1 คลิกตามเกณฑ์ TOR.
+- **`Model_Comparison_Card.tsx`:** กล่องเปรียบเทียบผลลัพธ์ของ WangchanBERTa คู่กับ Baseline แบบ Side-by-side แสดง Confidence Bar และ Agreement Status.
+- **`Disclaimer_Banner.tsx`:** กล่องข้อความเตือนความรับผิดชอบทางการแพทย์.
+- **`Metrics_Summary_Modal.tsx`:** Modal แสดงตาราง Accuracy, F1-macro, F1-fake, Precision, Recall, และผลการวิเคราะห์ Error Analysis.
 
 ---
 

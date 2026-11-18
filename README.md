@@ -4,7 +4,7 @@
 > **สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ (CAI) — สถาบันการจัดการปัญญาภิวัฒน์ (PIM)**  
 > ภาคการศึกษาที่ 1 ปีการศึกษา 2569 (2026)
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/PhuriphatTyPeZ3r0/thai-health-fakenews)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/PhuriphatTyPeZ3r0/Thai_Health_Fake_News)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js%2014%20(MVC%2FOOP)-black?logo=next.js)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20on%20Modal-009688?logo=fastapi)](https://modal.com/)
 [![Model: WangchanBERTa](https://img.shields.io/badge/NLP%20Model-WangchanBERTa-orange)](https://huggingface.co/airesearch/wangchanberta-base-att-spm-uncased)
@@ -29,8 +29,8 @@
 ## 🛠️ 2. สถาปัตยกรรมและวิธีการติดตั้งใช้งาน (How to Run & Customize)
 
 ระบบถูกออกแบบในรูปแบบ **Monorepo** แบ่งออกเป็น **2 Services**:
-1. **`web/` (Next.js 14 MVC/OOP WebApp):** ส่วนติดต่อผู้ใช้ พัฒนาด้วยกระบวนทัศน์ OOP (Model-View-Controller) Deploy บน **Vercel**
-2. **`services/inference/` (Python FastAPI on Modal):** เซิร์ฟเวอร์ประมวลผลโมเดล Transformer บน GPU Serverless
+1. **`Web/` (Next.js 14 MVC/OOP WebApp):** ส่วนติดต่อผู้ใช้ พัฒนาด้วยกระบวนทัศน์ OOP (Model-View-Controller) Deploy บน **Vercel**
+2. **`Services/Inference/` (Python FastAPI on Modal):** เซิร์ฟเวอร์ประมวลผลโมเดล Transformer บน GPU Serverless
 
 ### 💻 วิธีการรันในเครื่อง (Local Development)
 
@@ -40,18 +40,18 @@
 pip install -r requirements.txt
 
 # เตรียมชุดข้อมูล LimeSoda และรัน Data Pipeline
-python -m src.data_pipeline
+python -m Src.Data_Pipeline
 
 # เทรน Baseline Model
-python -m src.baseline
+python -m Src.Baseline
 
 # รัน FastAPI Inference Service (Localhost:8000)
-python -m services.inference.app
+python -m Services.Inference.App
 ```
 
 #### 2. ติดตั้งและรัน Next.js WebApp
 ```bash
-cd web
+cd Web
 npm install
 npm run dev
 ```
@@ -60,10 +60,10 @@ npm run dev
 #### 3. การ Deploy ขึ้น Cloud
 - **FastAPI Inference บน Modal:**
   ```bash
-  modal deploy services/inference/modal_app.py
+  modal deploy Services/Inference/Modal_App.py
   ```
 - **Next.js บน Vercel:**
-  Push โค้ดขึ้น GitHub แล้ว Import โครงการไปยัง Vercel โดยตั้ง Root Directory เป็น `web/`
+  Push โค้ดขึ้น GitHub แล้ว Import โครงการไปยัง Vercel โดยตั้ง Root Directory เป็น `Web/`
 
 ---
 
@@ -84,7 +84,7 @@ npm run dev
 | **Precision (Fake)** | 0.7120 | **0.8840** | **+17.2%** |
 | **Recall (Fake)** | 0.6800 | **0.8740** | **+19.4%** |
 
-> รายละเอียดการวิเคราะห์ข้อผิดพลาด (Error Analysis ≥ 20 กรณี) สามารถดูได้ที่ [results/compare.md](results/compare.md) และ [results/errors.csv](results/errors.csv)
+> รายละเอียดการวิเคราะห์ข้อผิดพลาด (Error Analysis ≥ 20 กรณี) สามารถดูได้ที่ [Results/Compare.md](Results/Compare.md) และ [Results/Errors.csv](Results/Errors.csv)
 
 ---
 
