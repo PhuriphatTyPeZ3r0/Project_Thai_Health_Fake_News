@@ -9,7 +9,7 @@ made-up predictions.
 Config (env):
     WANGCHANBERTA_MODEL     Hub id or local dir     default Kitkhachon/wcb-limesoda-fakenews
     WANGCHANBERTA_REVISION  commit sha/tag to pin   default latest
-    BASELINE_MODEL_PATH     joblib file             default Models/baseline_model.joblib (repo-root relative)
+    BASELINE_MODEL_PATH     joblib file             default Models/Baseline_Model.joblib (repo-root relative)
 """
 
 import os
@@ -78,7 +78,7 @@ class BaselinePredictor(BasePredictor):
     """TF-IDF + Logistic Regression predictor."""
 
     def __init__(self, model_path: Optional[str] = None):
-        p = Path(model_path or os.getenv("BASELINE_MODEL_PATH", "Models/baseline_model.joblib"))
+        p = Path(model_path or os.getenv("BASELINE_MODEL_PATH", "Models/Baseline_Model.joblib"))
         self.model_path = p if p.is_absolute() else ROOT / p
         self.pipeline = None
         self._lock = threading.Lock()

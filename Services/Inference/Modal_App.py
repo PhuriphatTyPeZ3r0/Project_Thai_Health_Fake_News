@@ -25,7 +25,7 @@ BASE_CHECKPOINT = "airesearch/wangchanberta-base-att-spm-uncased"
 
 REMOTE_ROOT = "/root"
 HF_HOME = "/root/hf_cache"
-BASELINE_PATH = "/root/Models/baseline_model.joblib"
+BASELINE_PATH = "/root/Models/Baseline_Model.joblib"
 
 ROOT = Path(__file__).resolve().parents[2] if modal.is_local() else Path(REMOTE_ROOT)
 
