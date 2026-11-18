@@ -64,3 +64,4 @@ Web/*.tsbuildinfo
 *.bin
 *.safetensors
 *.ckpt
+.vercel

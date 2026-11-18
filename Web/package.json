@@ -2,6 +2,10 @@
   "name": "thai-health-fakenews-web",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "predev": "node -e \"try { require('fs').rmSync('.next', { recursive: true, force: true }); } catch (e) {}\"",
     "dev": "next dev",
