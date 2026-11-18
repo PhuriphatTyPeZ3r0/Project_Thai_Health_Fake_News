@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.env
+.env*.local
+venv/
+.venv/
+env/
+ENV/
+
+# Data & Models
+data/raw/*
+!data/raw/.gitkeep
+models/*.bin
+models/*.pt
+models/*.safetensors
+*.ckpt
+
+# Results & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Node.js / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+web/.vercel/
+web/*.tsbuildinfo
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
