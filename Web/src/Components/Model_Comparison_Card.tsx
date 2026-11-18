@@ -10,7 +10,7 @@ interface ModelComparisonCardProps {
 
 const ModelVerdictCard: React.FC<{
   title: string;
-  badge: string;
+  badge?: string;
   icon: React.ReactNode;
   result: PredictionResultDTO;
   isPrimary?: boolean;
@@ -45,15 +45,17 @@ const ModelVerdictCard: React.FC<{
             <p className="text-[10px] text-slate-400 dark:text-zinc-500 font-mono">{result.model}</p>
           </div>
         </div>
-        <span
-          className={`rounded-md px-2 py-0.5 text-[10px] font-semibold font-mono tracking-wide ${
-            isPrimary
-              ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/70 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800/60'
-              : 'bg-zinc-100 text-zinc-600 border border-zinc-200/60 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700'
-          }`}
-        >
-          {badge}
-        </span>
+        {badge && (
+          <span
+            className={`rounded-md px-2 py-0.5 text-[10px] font-semibold font-mono tracking-wide ${
+              isPrimary
+                ? 'bg-emerald-50 text-emerald-800 border border-emerald-200/70 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800/60'
+                : 'bg-zinc-100 text-zinc-600 border border-zinc-200/60 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-700'
+            }`}
+          >
+            {badge}
+          </span>
+        )}
       </div>
 
       {/* Primary Verdict Banner */}
@@ -125,7 +127,6 @@ export const ModelComparisonCard: React.FC<ModelComparisonCardProps> = ({ compar
     <div className="space-y-3">
       <ModelVerdictCard
         title="WangchanBERTa (Fine-tuned)"
-        badge="Primary Transformer"
         icon={<Cpu className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />}
         result={comparison.wangchanberta}
         isPrimary={true}
@@ -148,7 +149,6 @@ export const ShimmerComparisonCard: React.FC = () => {
         <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 space-y-3">
           <div className="flex justify-between">
             <div className="h-4 w-44 rounded bg-zinc-200 dark:bg-zinc-800" />
-            <div className="h-4 w-16 rounded bg-zinc-200 dark:bg-zinc-800" />
           </div>
           <div className="h-14 rounded-lg bg-zinc-100 dark:bg-zinc-800/60" />
           <div className="h-2 rounded bg-zinc-200 dark:bg-zinc-800" />
