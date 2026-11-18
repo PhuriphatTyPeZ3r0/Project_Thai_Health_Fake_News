@@ -14,6 +14,7 @@ import { Search, Loader2, RefreshCw, AlertCircle, Activity, ArrowRight, ArrowLef
 export default function StudioPage() {
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isSlowLoading, setIsSlowLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [comparisonResult, setComparisonResult] = useState<ModelComparisonDTO | null>(null);
@@ -30,6 +31,11 @@ export default function StudioPage() {
     }
 
     setLoading(true);
+    setIsSlowLoading(false);
+    const slowTimer = setTimeout(() => {
+      setIsSlowLoading(true);
+    }, 2500);
+
     try {
       const res = await fetch('/api/analyze', {
         method: 'POST',
@@ -51,6 +57,8 @@ export default function StudioPage() {
     } catch (err: any) {
       setErrorMsg(err.message || 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้');
     } finally {
+      clearTimeout(slowTimer);
+      setIsSlowLoading(false);
       setLoading(false);
     }
   };
@@ -197,7 +205,17 @@ export default function StudioPage() {
             </div>
 
             {loading ? (
-              <ShimmerComparisonCard />
+              <div className="space-y-3">
+                {isSlowLoading && (
+                  <div className="flex items-center gap-2 rounded-xl border border-amber-200/90 bg-amber-50/80 p-3 text-xs font-medium text-amber-800 dark:border-amber-900/40 dark:bg-amber-950/40 dark:text-amber-300 animate-pulse">
+                    <Loader2 className="h-4 w-4 animate-spin text-amber-600 dark:text-amber-400 shrink-0" />
+                    <p className="leading-relaxed">
+                      กำลังเชื่อมต่อคลาวด์ GPU (Modal Serverless) การประมวลผลครั้งแรกอาจใช้เวลาสักครู่...
+                    </p>
+                  </div>
+                )}
+                <ShimmerComparisonCard />
+              </div>
             ) : comparisonResult ? (
               <ModelComparisonCard comparison={comparisonResult} />
             ) : (

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test:web": "pnpm --prefix Web test",
+    "test:live": "pnpm dlx tsx Web/Scripts/Test_Live_Modal.ts",
     "test:python": "pytest Tests/",
     "build:web": "pnpm --prefix Web run build",
     "verify:all": "pnpm test:web && pnpm build:web"
