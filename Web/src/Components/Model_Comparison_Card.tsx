@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ModelComparisonDTO, PredictionResultDTO } from '../Types/Index';
-import { CheckCircle2, XCircle, Cpu, Zap, Check, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, XCircle, Cpu, Zap } from 'lucide-react';
 
 interface ModelComparisonCardProps {
   comparison: ModelComparisonDTO;
@@ -116,71 +116,34 @@ const ModelVerdictCard: React.FC<{
           />
         </div>
       </div>
-
-      {/* Latency Footer */}
-      {result.latency_ms !== undefined && (
-        <div className="mt-3 pt-2.5 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center text-[10px] text-slate-400 dark:text-zinc-500 font-mono">
-          <span>Processing Time</span>
-          <span className="text-slate-600 dark:text-zinc-300 font-medium">{result.latency_ms} ms</span>
-        </div>
-      )}
     </div>
   );
 };
 
 export const ModelComparisonCard: React.FC<ModelComparisonCardProps> = ({ comparison }) => {
   return (
-    <div className="space-y-3.5">
-      {/* Consensus Alert Pill */}
-      <div
-        className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-xs font-medium border ${
-          comparison.agreement
-            ? 'bg-emerald-50/70 text-emerald-800 border-emerald-200/80 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/60'
-            : 'bg-amber-50/70 text-amber-800 border-amber-200/80 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800/60'
-        }`}
-      >
-        <div className="flex items-center gap-2">
-          {comparison.agreement ? (
-            <Check className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          ) : (
-            <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
-          )}
-          <span>
-            {comparison.agreement
-              ? 'ผลการวิเคราะห์สอดคล้องกัน (High Model Consensus)'
-              : 'ผลการวิเคราะห์มีความเห็นต่างกัน (Model Disagreement — แนะนำตรวจสอบเพิ่มเติม)'}
-          </span>
-        </div>
-        <span className="text-[11px] font-mono opacity-80 shrink-0">
-          Total: {comparison.latency_ms}ms
-        </span>
-      </div>
-
-      {/* Stacked Cards */}
-      <div className="space-y-3">
-        <ModelVerdictCard
-          title="WangchanBERTa (Fine-tuned)"
-          badge="Primary Transformer"
-          icon={<Cpu className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />}
-          result={comparison.wangchanberta}
-          isPrimary={true}
-        />
-        <ModelVerdictCard
-          title="TF-IDF + Logistic Regression"
-          badge="Baseline Model"
-          icon={<Zap className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />}
-          result={comparison.baseline}
-          isPrimary={false}
-        />
-      </div>
+    <div className="space-y-3">
+      <ModelVerdictCard
+        title="WangchanBERTa (Fine-tuned)"
+        badge="Primary Transformer"
+        icon={<Cpu className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />}
+        result={comparison.wangchanberta}
+        isPrimary={true}
+      />
+      <ModelVerdictCard
+        title="TF-IDF + Logistic Regression"
+        badge="Baseline Model"
+        icon={<Zap className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />}
+        result={comparison.baseline}
+        isPrimary={false}
+      />
     </div>
   );
 };
 
 export const ShimmerComparisonCard: React.FC = () => {
   return (
-    <div className="space-y-3.5 animate-pulse">
-      <div className="h-10 rounded-xl bg-zinc-200 dark:bg-zinc-800" />
+    <div className="space-y-3 animate-pulse">
       <div className="space-y-3">
         <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 space-y-3">
           <div className="flex justify-between">

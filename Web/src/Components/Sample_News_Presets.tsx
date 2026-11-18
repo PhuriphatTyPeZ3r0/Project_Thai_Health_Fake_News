@@ -34,12 +34,11 @@ export const SAMPLE_PRESETS = [
 export const SampleNewsPresets: React.FC<SampleNewsPresetsProps> = ({ onSelect, disabled }) => {
   return (
     <div className="space-y-2">
-      <div className="flex items-center justify-between text-xs">
+      <div className="flex items-center text-xs">
         <div className="flex items-center gap-1.5 font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider text-[11px]">
           <Sparkles className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
           <span>ข้อความตัวอย่างสำหรับทดสอบ</span>
         </div>
-        <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-mono">1-Click Test</span>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
