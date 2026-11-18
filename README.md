@@ -76,13 +76,13 @@ npm run dev
 
 ### ตารางเปรียบเทียบผลลัพธ์ (Performance Comparison)
 
-| เมตริก (Metrics) | Baseline (TF-IDF + LogReg) | WangchanBERTa (Fine-tuned) | ผลต่าง (Delta) |
-| :--- | :---: | :---: | :---: |
-| **Accuracy** | 0.7240 | **0.8950** | **+17.1%** |
-| **F1-Macro** | 0.7085 | **0.8872** | **+17.8%** |
-| **F1-Fake (Class 1)** | 0.6950 | **0.8790** | **+18.4%** |
-| **Precision (Fake)** | 0.7120 | **0.8840** | **+17.2%** |
-| **Recall (Fake)** | 0.6800 | **0.8740** | **+19.4%** |
+| เมตริก (Metrics) | Baseline (TF-IDF + LogReg) | WangchanBERTa (Fine-tuned) | ผลต่าง (Delta) | สรุปผลการประเมิน |
+| :--- | :---: | :---: | :---: | :---: |
+| **Accuracy (ความถูกต้องรวม)** | 0.7726 (77.26%) | **0.8941 (89.41%)** | **+12.15%** | 🏆 WangchanBERTa ชนะ |
+| **F1-Macro (ค่าเฉลี่ยทั้งสองคลาส)** | 0.7726 (77.26%) | **0.8872 (88.72%)** | **+11.46%** | 🏆 WangchanBERTa ชนะ |
+| **F1-Fake (คลาสข่าวปลอม)** | 0.7740 (77.40%) | **0.8846 (88.46%)** | **+11.06%** | 🏆 WangchanBERTa ชนะ |
+| **Precision (ความแม่นตรง Fake)** | 0.8278 (82.78%) | **0.8897 (88.97%)** | **+6.19%** | 🏆 WangchanBERTa ชนะ |
+| **Recall (ความครอบคลุม Fake)** | 0.7267 (72.67%) | **0.8796 (87.96%)** | **+15.29%** | 🏆 WangchanBERTa ชนะ |
 
 > รายละเอียดการวิเคราะห์ข้อผิดพลาด (Error Analysis ≥ 20 กรณี) สามารถดูได้ที่ [Results/Compare.md](Results/Compare.md) และ [Results/Errors.csv](Results/Errors.csv)
 
@@ -92,11 +92,11 @@ npm run dev
 
 กลุ่มโครงงาน Mini-Project (6 คน):
 
-| รูปประจำตัว | รหัสบทบาท | รหัสนักศึกษา | ชื่อ-นามสกุล | บัญชี GitHub | กิ่งพัฒนางาน (Git Branch) | บทบาทหลักในโครงงาน |
+| รูปประจำตัว | รหัสบทบาท | รหัสนักศึกษา | ชื่อ-นามสกุล | บัญชี GitHub | กิ่งพัฒนางาน (Git Branch) | รายละเอียดงานและผลงานจริงที่ส่งมอบ (Actual Deliverables) |
 | :---: | :---: | :---: | :--- | :--- | :--- | :--- |
-| <img src="https://github.com/chonlatorn230.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P1** | `6752300135` | ชลธร หรั่งศิริ | [@chonlatorn230](https://github.com/chonlatorn230) | `feat/6752300135-data-pipeline` | **Data Engineer:** โหลด LimeSoda, Data Cleaning, Stratified Split 80/10/10 |
-| <img src="https://github.com/MittrapakXXV.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P2** | `6752300488` | มิตรภักดิ์ กล่อมใจ | [@MittrapakXXV](https://github.com/MittrapakXXV) | `feat/6752300488-baseline-metrics` | **Baseline & Metrics:** พัฒนา `Metrics.py`, สร้างโมเดล TF-IDF + Logistic Regression |
-| <img src="https://github.com/Kitkhachon-xx.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P3** | `6752300216` | กฤษขจร จิรวงศ์รุ่งเรือง | [@Kitkhachon-xx](https://github.com/Kitkhachon-xx) | `feat/6752300216-finetune-wcb` | **AI Engineer:** Fine-tuning WangchanBERTa บน Colab GPU, Push Hugging Face Hub |
-| <img src="https://github.com/first025.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P4** | `6752300607` | ปรัชญา ชอบมะรัง | [@first025](https://github.com/first025) | `feat/6752300607-compare-testing` | **QA & Error Analyst:** พัฒนาชุดทดสอบ 20 เคส, วิเคราะห์ข้อผิดพลาด, Compare Models |
-| <img src="https://github.com/PhuriphatTyPeZ3r0.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P5** | `6752300313` | ภูริพัฒน์ เหมกุล | [@PhuriphatTyPeZ3r0](https://github.com/PhuriphatTyPeZ3r0) | `feat/6752300313-nextjs-mvc-webapp` | **Full Stack Engineer:** พัฒนา Next.js MVC/OOP WebApp, FastAPI บน Modal, Deploy Vercel |
-| <img src="https://github.com/maeteerapoopakdee-spec.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P6** | `6752300968` | เมธีรา ภูภักดี | [@maeteerapoopakdee-spec](https://github.com/maeteerapoopakdee-spec) | `feat/6752300968-docs-slides-integration` | **Project Lead & Doc:** บริหารจัดการ Git Repo, เอกสาร README, สไลด์นำเสนอ, Live Demo |
+| <img src="https://github.com/chonlatorn230.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P1** | `6752300135` | ชลธร หรั่งศิริ | [@chonlatorn230](https://github.com/chonlatorn230) | `feat/6752300135-data-pipeline` | **Data Engineer:** พัฒนา `Src/Data_Pipeline.py` โหลดชุดข้อมูล LimeSoda (3,205 ตัวอย่าง), ทำความสะอาด Deduplication, ทำ Stratified Split 80/10/10 ลง `Data/Processed/{train, val, test}.csv` และสรุป `Data_Report.md` |
+| <img src="https://github.com/MittrapakXXV.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P2** | `6752300488` | มิตรภักดิ์ กล่อมใจ | [@MittrapakXXV](https://github.com/MittrapakXXV) | `feat/6752300488-baseline-metrics` | **Baseline & Metrics:** พัฒนาโมดูลคำนวณตัวชี้วัด `Src/Metrics.py` (Accuracy, Precision, Recall, F1, Confusion Matrix), พัฒนาโมเดล TF-IDF + Logistic Regression ใน `Src/Baseline.py`, เซฟโมเดล `Models/Baseline_Model.joblib` และประเมินผลลง `Results/Metrics_Baseline.json` |
+| <img src="https://github.com/Kitkhachon-xx.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P3** | `6752300216` | กฤษขจร จิรวงศ์รุ่งเรือง | [@Kitkhachon-xx](https://github.com/Kitkhachon-xx) | `feat/6752300216-finetune-wcb` | **AI Engineer:** พัฒนา `Src/Fine_Tune.py` Fine-tuning WangchanBERTa บน Colab GPU, ระบบ Sliding Window (`Src/Windowing.py`), Push โมเดลขึ้น Hugging Face Hub (`Kitkhachon/wcb-limesoda-fakenews`), และพัฒนา `Services/Inference/Modal_App.py` บน Modal Serverless GPU |
+| <img src="https://github.com/first025.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P4** | `6752300607` | ปรัชญา ชอบมะรัง | [@first025](https://github.com/first025) | `feat/6752300607-compare-testing` | **QA & Error Analyst:** จัดทำรายงานเปรียบเทียบโมเดลใน `Results/Compare.md`, วิเคราะห์เคสทำนายผิดพลาด 20 เคสจริงลง `Results/Errors.csv`, และพัฒนาชุดทดสอบระบบแบบ End-to-End ครอบคลุม 20 Test Cases ใน `Web/Scripts/Verify_System_Cases.ts` |
+| <img src="https://github.com/PhuriphatTyPeZ3r0.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P5** | `6752300313` | ภูริพัฒน์ เหมกุล | [@PhuriphatTyPeZ3r0](https://github.com/PhuriphatTyPeZ3r0) | `feat/6752300313-nextjs-mvc-webapp` | **Full Stack Engineer:** พัฒนา Next.js 14 App Router ด้วยสถาปัตยกรรม OOP + MVC (`Web/src`), ออกแบบ UI แบบ Apple/Taste Skill (Landing Page & Studio), เชื่อมต่อ Modal GPU API แบบเรียลไทม์ และ Deploy เว็บขึ้น Vercel Production ([thai-health-fake-news-web.vercel.app](https://thai-health-fake-news-web.vercel.app)) |
+| <img src="https://github.com/maeteerapoopakdee-spec.png?size=60" width="28" height="28" style="border-radius:50%; vertical-align:middle;" /> | **P6** | `6752300968` | เมธีรา ภูภักดี | [@maeteerapoopakdee-spec](https://github.com/maeteerapoopakdee-spec) | `feat/6752300968-docs-slides-integration` | **Project Lead & Doc:** บริหารจัดการ Git Monorepo, สรุปเอกสาร `README.md` ครบ 4 หัวข้อตามเกณฑ์กำหนด, บริหารบอร์ด `KANBAN.md` และ GitHub Projects, จัดทำสไลด์นำเสนอตามเกณฑ์ TOR และเตรียมบทซ้อม Live Demo พร้อมชุดคำถาม Q&A |

@@ -210,9 +210,9 @@ export default function LandingPage() {
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
-                  <span className="text-zinc-500">Macro F1: <strong className="text-emerald-600 dark:text-emerald-400">0.909</strong></span>
-                  <span className="text-zinc-500">Fake F1: <strong className="text-emerald-600 dark:text-emerald-400">0.925</strong></span>
-                  <span className="text-zinc-500">Accuracy: <strong className="text-emerald-600 dark:text-emerald-400">91.4%</strong></span>
+                  <span className="text-zinc-500">Macro F1: <strong className="text-emerald-600 dark:text-emerald-400">0.887</strong></span>
+                  <span className="text-zinc-500">Fake F1: <strong className="text-emerald-600 dark:text-emerald-400">0.885</strong></span>
+                  <span className="text-zinc-500">Accuracy: <strong className="text-emerald-600 dark:text-emerald-400">89.4%</strong></span>
                 </div>
               </div>
 
@@ -253,9 +253,9 @@ export default function LandingPage() {
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
-                  <span className="text-zinc-500">Macro F1: <strong>0.897</strong></span>
-                  <span className="text-zinc-500">Fake F1: <strong>0.902</strong></span>
-                  <span className="text-zinc-500">Accuracy: <strong>89.7%</strong></span>
+                  <span className="text-zinc-500">Macro F1: <strong>0.773</strong></span>
+                  <span className="text-zinc-500">Fake F1: <strong>0.774</strong></span>
+                  <span className="text-zinc-500">Accuracy: <strong>77.3%</strong></span>
                 </div>
               </div>
 
@@ -297,41 +297,41 @@ export default function LandingPage() {
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Accuracy (ความถูกต้องโดยรวม)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">89.7%</td>
-                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">91.4%</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+1.7%</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">77.26%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">89.41%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400 font-bold">+12.15%</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Precision (ความแม่นยำ)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">92.1%</td>
-                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">93.2%</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+1.1%</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">82.78%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">88.97%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400 font-bold">+6.19%</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Recall (ความครอบคลุม)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">88.4%</td>
-                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">91.0%</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+2.6%</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">72.67%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">87.96%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400 font-bold">+15.29%</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Macro F1-Score
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.897</td>
-                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.909</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.012</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.7726</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.8872</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400 font-bold">+0.1146</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Fake F1-Score (เน้นจับข่าวปลอม)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.902</td>
-                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.925</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.023</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.7740</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.8846</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400 font-bold">+0.1106</td>
                   </tr>
                 </tbody>
               </table>
@@ -362,7 +362,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               
               {/* P1 */}
-              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P1 • Data Engineer
@@ -370,27 +370,27 @@ export default function LandingPage() {
                   <span className="text-[10px] font-mono text-zinc-400">6752300135</span>
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">ชลธร หรั่งศิริ</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
-                  รับผิดชอบ LimeSoda Data Pipeline, Deduplication, และ Stratified Split (80/10/10)
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  พัฒนา <code className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">Src/Data_Pipeline.py</code> จัดการคลีนข้อมูล LimeSoda (3,205 ตัวอย่าง), ตัดคำซ้ำ Deduplication, ทำ Stratified Split 80/10/10 และสรุป <code className="text-[11px] font-mono">Data_Report.md</code>
                 </p>
               </div>
 
               {/* P2 */}
-              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
-                    P2 • Baseline Engineer
+                    P2 • Baseline & Metrics
                   </span>
                   <span className="text-[10px] font-mono text-zinc-400">6752300488</span>
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">มิตรภักดิ์ กล่อมใจ</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
-                  รับผิดชอบ Metrics Module (F1, Accuracy, Precision, Recall) และ TF-IDF Baseline Model
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  พัฒนาโมดูลตัวชี้วัด <code className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">Src/Metrics.py</code> (Accuracy, Precision, Recall, F1), พัฒนาโมเดล TF-IDF + Logistic Regression ใน <code className="text-[11px] font-mono">Src/Baseline.py</code> และสรุปผลประเมิน
                 </p>
               </div>
 
               {/* P3 */}
-              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P3 • AI Engineer
@@ -398,13 +398,13 @@ export default function LandingPage() {
                   <span className="text-[10px] font-mono text-zinc-400">6752300216</span>
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">กฤษขจร จิรวงศ์รุ่งเรือง</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
-                  รับผิดชอบ Fine-tuning WangchanBERTa บน Colab GPU และประเมินผล Main Model
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  พัฒนา <code className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">Src/Fine_Tune.py</code> บน Colab GPU, ระบบ Sliding Window, อัปโหลดโมเดลขึ้น Hugging Face Hub และพัฒนา <code className="text-[11px] font-mono">Modal_App.py</code> บน Modal Serverless GPU
                 </p>
               </div>
 
               {/* P4 */}
-              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P4 • QA & Error Analyst
@@ -412,13 +412,13 @@ export default function LandingPage() {
                   <span className="text-[10px] font-mono text-zinc-400">6752300607</span>
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">ปรัชญา ชอบมะรัง</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
-                  รับผิดชอบ System Testing 20 Test Cases, Model Comparison และ Error Analysis ≥20 เคส
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  จัดทำรายงานเปรียบเทียบใน <code className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">Results/Compare.md</code>, วิเคราะห์เคสทำนายผิดพลาด 20 เคสจริงใน <code className="text-[11px] font-mono">Results/Errors.csv</code> และพัฒนาชุดทดสอบระบบ 20 Test Cases
                 </p>
               </div>
 
               {/* P5 */}
-              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P5 • Full Stack Engineer
@@ -426,13 +426,13 @@ export default function LandingPage() {
                   <span className="text-[10px] font-mono text-zinc-400">6752300313</span>
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">ภูริพัฒน์ เหมกุล</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
-                  รับผิดชอบ Next.js 14 MVC/OOP WebApp, Dual-Model UI, Taste Skill Design, และ Modal GPU Service
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  พัฒนา Next.js 14 OOP/MVC WebApp (<code className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">Web/src</code>), ออกแบบ UI Landing Page & Studio, เชื่อมต่อ Modal GPU API และดูแล Production Deployment บน Vercel
                 </p>
               </div>
 
               {/* P6 */}
-              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2.5 shadow-2xs">
                 <div className="flex items-center justify-between">
                   <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P6 • Project Lead & Doc
@@ -440,8 +440,8 @@ export default function LandingPage() {
                   <span className="text-[10px] font-mono text-zinc-400">6752300968</span>
                 </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">เมธีรา ภูภักดี</h4>
-                <p className="text-xs text-slate-500 dark:text-zinc-400">
-                  รับผิดชอบ Repository Setup, README 4 หัวข้อหลัก, สไลด์นำเสนอ, และ Live Demo Rehearsal
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  บริหารจัดการ Git Monorepo, สรุปเอกสาร <code className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">README.md</code> ครบ 4 หัวข้อหลัก, บริหารบอร์ด KANBAN & GitHub Projects, จัดทำสไลด์นำเสนอตาม TOR และเตรียม Live Demo
                 </p>
               </div>
 

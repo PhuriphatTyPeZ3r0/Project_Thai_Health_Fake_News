@@ -56,33 +56,33 @@ export const MetricsSummaryModal: React.FC<MetricsSummaryModalProps> = ({ isOpen
                 <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-xs">
                   <tr>
                     <td className="py-2 px-3.5 font-medium text-slate-900 dark:text-zinc-200">Accuracy</td>
-                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.8972</td>
-                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.9140</td>
-                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+1.68%</td>
+                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.7726</td>
+                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.8941</td>
+                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+12.15%</td>
                   </tr>
                   <tr>
                     <td className="py-2 px-3.5 font-medium text-slate-900 dark:text-zinc-200">F1-Macro</td>
-                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.8969</td>
-                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.9090</td>
-                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+1.21%</td>
+                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.7726</td>
+                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.8872</td>
+                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+11.46%</td>
                   </tr>
                   <tr>
                     <td className="py-2 px-3.5 font-medium text-slate-900 dark:text-zinc-200">F1-Fake (Class 1)</td>
-                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.9021</td>
-                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.9250</td>
-                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+2.29%</td>
+                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.7740</td>
+                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.8846</td>
+                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+11.06%</td>
                   </tr>
                   <tr>
                     <td className="py-2 px-3.5 font-medium text-slate-900 dark:text-zinc-200">Precision (Fake)</td>
-                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.9212</td>
-                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.9320</td>
-                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+1.08%</td>
+                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.8278</td>
+                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.8897</td>
+                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+6.19%</td>
                   </tr>
                   <tr>
                     <td className="py-2 px-3.5 font-medium text-slate-900 dark:text-zinc-200">Recall (Fake)</td>
-                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.8837</td>
-                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.9100</td>
-                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+2.63%</td>
+                    <td className="py-2 px-3.5 font-mono text-slate-600 dark:text-zinc-400">0.7267</td>
+                    <td className="py-2 px-3.5 font-mono font-bold text-emerald-700 dark:text-emerald-400">0.8796</td>
+                    <td className="py-2 px-3.5 text-emerald-600 dark:text-emerald-400 font-bold font-mono">+15.29%</td>
                   </tr>
                 </tbody>
               </table>
@@ -96,7 +96,7 @@ export const MetricsSummaryModal: React.FC<MetricsSummaryModalProps> = ({ isOpen
               <span>สรุปผลการวิเคราะห์เปรียบเทียบ:</span>
             </div>
             <p className="text-slate-600 dark:text-zinc-400 leading-relaxed text-[11px]">
-              โมเดล WangchanBERTa ทำคะแนน Fake F1 สูงถึง 0.925 เหนือกว่าโมเดล Baseline (0.902) โดยเฉพาะความครอบคลุมในการตรวจจับ (Recall 91.0% เทียบกับ 88.4%) เนื่องจากสถาปัตยกรรม RoBERTa เข้าใจบริบทไวยากรณ์ไทยและความเชื่อมโยงระยะไกลระหว่างอาการและคำอวดอ้างสรรพคุณเกินจริง
+              โมเดล WangchanBERTa ทำคะแนน Fake F1 สูงถึง 0.885 เหนือกว่าโมเดล Baseline (0.774) โดยเฉพาะความครอบคลุมในการตรวจจับข่าวปลอม (Recall 88.0% เทียบกับ 72.7%) เพิ่มขึ้นอย่างก้าวกระโดดถึง +15.3% เนื่องจากสถาปัตยกรรม RoBERTa เข้าใจบริบทไวยากรณ์ไทยและความเชื่อมโยงระยะไกลระหว่างอาการและคำอวดอ้างสรรพคุณเกินจริงได้อย่างแม่นยำ
             </p>
           </div>
         </div>
