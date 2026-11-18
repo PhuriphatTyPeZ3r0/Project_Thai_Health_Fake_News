@@ -1,0 +1,20 @@
+{
+  "name": "thai-health-fakenews-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "test:web": "pnpm --prefix Web test",
+    "test:live": "pnpm dlx tsx Web/Scripts/Test_Live_Modal.ts",
+    "test:python": "pytest Tests/",
+    "build": "pnpm --prefix Web run build",
+    "build:web": "pnpm --prefix Web run build",
+    "verify:all": "pnpm test:web && pnpm build:web"
+  },
+  "devDependencies": {
+    "next": "^14.2.15"
+  }
+}

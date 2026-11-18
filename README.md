@@ -4,7 +4,7 @@
 > **สาขาวิศวกรรมคอมพิวเตอร์และปัญญาประดิษฐ์ (CAI) — สถาบันการจัดการปัญญาภิวัฒน์ (PIM)**  
 > ภาคการศึกษาที่ 1 ปีการศึกษา 2569 (2026)
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/PhuriphatTyPeZ3r0/Thai_Health_Fake_News)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/PhuriphatTyPeZ3r0/Project_Thai_Health_Fake_News)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js%2014%20(MVC%2FOOP)-black?logo=next.js)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20on%20Modal-009688?logo=fastapi)](https://modal.com/)
 [![Model: WangchanBERTa](https://img.shields.io/badge/NLP%20Model-WangchanBERTa-orange)](https://huggingface.co/airesearch/wangchanberta-base-att-spm-uncased)
