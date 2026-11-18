@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/Components/Nav_Bar';
 import { HeroTeaserCard } from '@/Components/Landing/Hero_Teaser_Card';
 import { DisclaimerBanner } from '@/Components/Disclaimer_Banner';
-import { MetricsSummaryModal } from '@/Components/Metrics_Summary_Modal';
 import {
   Sparkles,
   ArrowRight,
@@ -24,11 +23,9 @@ import {
 } from 'lucide-react';
 
 export default function LandingPage() {
-  const [showMetricsModal, setShowMetricsModal] = useState(false);
-
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfdfd] dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 selection:bg-emerald-100 dark:selection:bg-emerald-950 selection:text-emerald-900 dark:selection:text-emerald-200 transition-colors duration-200">
-      <Navbar mode="landing" onOpenMetrics={() => setShowMetricsModal(true)} />
+      <Navbar mode="landing" />
 
       <main className="flex-1 space-y-16 sm:space-y-24 pb-16">
         
@@ -452,11 +449,6 @@ export default function LandingPage() {
       </main>
 
       <DisclaimerBanner />
-
-      <MetricsSummaryModal
-        isOpen={showMetricsModal}
-        onClose={() => setShowMetricsModal(false)}
-      />
     </div>
   );
 }

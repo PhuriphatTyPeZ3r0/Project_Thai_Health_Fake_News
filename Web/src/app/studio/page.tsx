@@ -6,7 +6,6 @@ import { Navbar } from '@/Components/Nav_Bar';
 import { DisclaimerBanner } from '@/Components/Disclaimer_Banner';
 import { SampleNewsPresets } from '@/Components/Sample_News_Presets';
 import { ModelComparisonCard, ShimmerComparisonCard } from '@/Components/Model_Comparison_Card';
-import { MetricsSummaryModal } from '@/Components/Metrics_Summary_Modal';
 import { MobileActionBar } from '@/Components/Mobile_Action_Bar';
 import { ModelComparisonDTO } from '@/Types/Index';
 import { Search, Loader2, RefreshCw, AlertCircle, Activity, ArrowRight, ArrowLeft } from 'lucide-react';
@@ -18,7 +17,6 @@ export default function StudioPage() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
   const [comparisonResult, setComparisonResult] = useState<ModelComparisonDTO | null>(null);
-  const [showMetricsModal, setShowMetricsModal] = useState(false);
 
   const handleAnalyze = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -78,7 +76,7 @@ export default function StudioPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfdfd] dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 selection:bg-emerald-100 dark:selection:bg-emerald-950 selection:text-emerald-900 dark:selection:text-emerald-200 transition-colors duration-200">
-      <Navbar mode="studio" onOpenMetrics={() => setShowMetricsModal(true)} />
+      <Navbar mode="studio" />
 
       <main className="container mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8 flex-1">
         {/* Top Breadcrumb & Studio Header */}
@@ -245,11 +243,6 @@ export default function StudioPage() {
         onClear={handleClear}
         loading={loading}
         hasInput={inputText.trim().length > 0}
-      />
-
-      <MetricsSummaryModal
-        isOpen={showMetricsModal}
-        onClose={() => setShowMetricsModal(false)}
       />
     </div>
   );
