@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Github, BarChart2, ArrowRight, ArrowLeft, Sparkles } from 'lucide-react';
+import { Github, BarChart2, ArrowRight, ArrowLeft, Sparkles } from 'lucide-react';
 import { ThemeToggle } from './Theme_Toggle';
+import { AppLogo } from './App_Logo';
 
 interface NavbarProps {
   mode?: 'landing' | 'studio';
@@ -16,9 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ mode = 'landing', onOpenMetrics 
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Brand & Project Info */}
         <Link href="/" className="flex items-center gap-3 group focus:outline-hidden">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-xs group-hover:bg-emerald-500 transition-colors">
-            <ShieldCheck className="h-5 w-5" />
-          </div>
+          <AppLogo size={36} />
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100 tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">

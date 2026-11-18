@@ -20,6 +20,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Thai Health Fake-News Detector | 1323404 NLP Mini Project',
   description: 'Thai Health Fake-News Detection using fine-tuned WangchanBERTa and TF-IDF Baseline with Next.js MVC OOP architecture.',
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
