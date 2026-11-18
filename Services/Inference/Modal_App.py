@@ -19,8 +19,9 @@ import modal
 
 # --- config -----------------------------------------------------------------------------------------
 MODEL_ID = "Kitkhachon/wcb-limesoda-fakenews"
-# Pin the evaluated model. Update this after re-training/pushing, then re-run the evaluation.
-MODEL_REVISION = "9566917aec217d3ed01120d13c49d51b786387e3"
+# Pin the evaluated model: first complete upload on the Hub (model + tokenizer), F1-macro 0.9122 on test.
+# A later push (9566917...) scored 0.9054. Update this after re-training/pushing, then re-run the evaluation.
+MODEL_REVISION = "84d5db0935db11bf7681b3b9e5c5cbf0f0b9fea7"
 BASE_CHECKPOINT = "airesearch/wangchanberta-base-att-spm-uncased"
 
 REMOTE_ROOT = "/root"
