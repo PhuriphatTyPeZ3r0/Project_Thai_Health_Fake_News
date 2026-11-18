@@ -1,8 +1,8 @@
 """WangchanBERTa Fine-Tuning Module (P3: Kitkhachon)
 Task F1-F3:
 - Load airesearch/wangchanberta-base-att-spm-uncased
-- Fine-tune on Data/Processed/Train.csv, select best epoch by F1-macro on Val.csv
-- Evaluate on Test.csv via Src.Metrics.compute -> Results/Metrics_Wcb.json
+- Fine-tune on Data/Processed/train.csv, select best epoch by F1-macro on val.csv
+- Evaluate on test.csv via Src.Metrics.compute -> Results/Metrics_Wcb.json
 - Optionally push to Hugging Face Hub (default Kitkhachon/wcb-limesoda-fakenews)
 
 Run from repo root (Colab: %cd into the cloned repo):
@@ -36,9 +36,9 @@ def compute_metrics_eval(eval_pred):
 
 
 def train_model(
-    train_path="Data/Processed/Train.csv",
-    val_path="Data/Processed/Val.csv",
-    test_path="Data/Processed/Test.csv",
+    train_path="Data/Processed/train.csv",
+    val_path="Data/Processed/val.csv",
+    test_path="Data/Processed/test.csv",
     output_dir="Models/WangchanBerta_Finetuned",  # on Colab point this at Google Drive
     metrics_output="Results/Metrics_Wcb.json",
     num_epochs=3,
