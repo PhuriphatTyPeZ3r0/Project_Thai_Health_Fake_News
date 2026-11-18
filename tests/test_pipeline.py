@@ -1,6 +1,10 @@
 """Unit Tests for Thai Health Fake-News NLP Engine"""
 
-import pytest
+try:
+    import pytest
+except ImportError:
+    pytest = None
+
 from src.metrics import compute
 from src.predict import predict, _baseline_predictor, _wcb_predictor
 
