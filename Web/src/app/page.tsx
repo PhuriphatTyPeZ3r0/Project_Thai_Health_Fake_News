@@ -171,43 +171,45 @@ export default function LandingPage() {
             </div>
 
             {/* Model Comparison Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
               
               {/* Model 1: WangchanBERTa */}
-              <div className="rounded-2xl border border-emerald-200/80 dark:border-emerald-900/60 bg-white dark:bg-zinc-900/80 p-6 space-y-4 shadow-xs relative overflow-hidden">
+              <div className="rounded-2xl border border-emerald-200/80 dark:border-emerald-900/60 bg-white dark:bg-zinc-900/80 p-6 shadow-xs relative overflow-hidden flex flex-col justify-between h-full">
                 <div className="absolute top-0 right-0 rounded-bl-xl bg-emerald-600 text-white px-3 py-1 text-[10px] font-mono font-bold">
                   Main Model
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400">
-                    <Cpu className="h-6 w-6" />
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400">
+                      <Cpu className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                        WangchanBERTa Fine-tuned
+                      </h3>
+                      <p className="text-xs font-mono text-emerald-700 dark:text-emerald-400">
+                        RoBERTa-based Thai Language Model
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                      WangchanBERTa Fine-tuned
-                    </h3>
-                    <p className="text-xs font-mono text-emerald-700 dark:text-emerald-400">
-                      RoBERTa-based Thai Language Model
-                    </p>
-                  </div>
+
+                  <ul className="space-y-2.5 text-xs text-slate-600 dark:text-zinc-300">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Pretrained:</strong> พัฒนาโดย VISTEC มีความเชี่ยวชาญไวยากรณ์และบริบทภาษาไทยขั้นสูง</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Tokenizer:</strong> SentencePiece (Unigram) ตัดคำและจัดการคำที่ไม่เคยพบ (OOV) ได้ยอดเยี่ยม</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <span><strong>Self-Attention:</strong> จับความเชื่อมโยงระยะไกลระหว่าง "ชื่อโรค" และ "คำอวดอ้างสรรพคุณเกินจริง"</span>
+                    </li>
+                  </ul>
                 </div>
 
-                <ul className="space-y-2 text-xs text-slate-600 dark:text-zinc-300">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong>Pretrained:</strong> พัฒนาโดย VISTEC มีความเชี่ยวชาญไวยากรณ์และบริบทภาษาไทยขั้นสูง</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong>Tokenizer:</strong> SentencePiece (Unigram) ตัดคำและจัดการคำที่ไม่เคยพบ (OOV) ได้ยอดเยี่ยม</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    <span><strong>Self-Attention:</strong> จับความเชื่อมโยงระยะไกลระหว่าง "ชื่อโรค" และ "คำอวดอ้างสรรพคุณเกินจริง"</span>
-                  </li>
-                </ul>
-
-                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
+                <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-500">Macro F1: <strong className="text-emerald-600 dark:text-emerald-400">0.909</strong></span>
                   <span className="text-zinc-500">Fake F1: <strong className="text-emerald-600 dark:text-emerald-400">0.925</strong></span>
                   <span className="text-zinc-500">Accuracy: <strong className="text-emerald-600 dark:text-emerald-400">91.4%</strong></span>
@@ -215,40 +217,42 @@ export default function LandingPage() {
               </div>
 
               {/* Model 2: TF-IDF Baseline */}
-              <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 space-y-4 shadow-xs relative overflow-hidden">
+              <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 shadow-xs relative overflow-hidden flex flex-col justify-between h-full">
                 <div className="absolute top-0 right-0 rounded-bl-xl bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-3 py-1 text-[10px] font-mono font-bold">
                   Baseline
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
-                    <BarChart2 className="h-6 w-6" />
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                      <BarChart2 className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                        TF-IDF + Logistic Regression
+                      </h3>
+                      <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                        Classical Statistical Baseline
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                      TF-IDF + Logistic Regression
-                    </h3>
-                    <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
-                      Classical Statistical Baseline
-                    </p>
-                  </div>
+
+                  <ul className="space-y-2.5 text-xs text-slate-600 dark:text-zinc-300">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
+                      <span><strong>N-gram TF-IDF:</strong> แปลงข้อความเป็นเวกเตอร์ความถี่คำระดับ Unigram และ Bigram สำคัญ</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
+                      <span><strong>Linear Boundary:</strong> จำแนกด้วย Logistic Regression น้ำหนักคำโปร่งใส ตรวจสอบง่าย</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
+                      <span><strong>Ultra-low Latency:</strong> ใช้ทรัพยากรประมวลผลต่ำมาก (&lt;15ms) ทำหน้าที่เป็น Safety Guardrail</span>
+                    </li>
+                  </ul>
                 </div>
 
-                <ul className="space-y-2 text-xs text-slate-600 dark:text-zinc-300">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
-                    <span><strong>N-gram Representation:</strong> แปลงข้อความเป็นเวกเตอร์ความถี่คำ (Term Frequency-Inverse Document Frequency)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
-                    <span><strong>Linear Decision Boundary:</strong> จำแนกด้วย Logistic Regression น้ำหนักคำโปร่งใส ตรวจสอบง่าย</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
-                    <span><strong>Ultra-low Latency:</strong> ใช้ทรัพยากรประมวลผลต่ำมาก (&lt;15ms) ทำหน้าที่เป็น Safety Guardrail</span>
-                  </li>
-                </ul>
-
-                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
+                <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-500">Macro F1: <strong>0.812</strong></span>
                   <span className="text-zinc-500">Fake F1: <strong>0.830</strong></span>
                   <span className="text-zinc-500">Accuracy: <strong>82.5%</strong></span>
@@ -265,24 +269,14 @@ export default function LandingPage() {
         {/* ========================================================= */}
         <section id="benchmark" className="container mx-auto max-w-7xl px-4 sm:px-6">
           <div className="border-t border-zinc-200/80 dark:border-zinc-800/80 pt-14 space-y-8">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div className="space-y-2 max-w-2xl">
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                  <Award className="h-4 w-4" />
-                  <span>Evaluation & Benchmark</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                  ตารางเปรียบเทียบประสิทธิภาพบน LimeSoda Dataset
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
-                  วัดผลบนชุดทดสอบ (Test Set) ด้วย Stratified Split 80/10/10 พร้อมทดสอบจริงผ่าน 20 System Cases
-                </p>
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                <Award className="h-4 w-4" />
+                <span>Evaluation & Benchmark</span>
               </div>
-
-              <div className="inline-flex items-center gap-2 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/40 px-3.5 py-2 text-xs font-semibold text-emerald-800 dark:text-emerald-300">
-                <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                <span>20/20 Test Cases Pass (100%)</span>
-              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                ตารางเปรียบเทียบประสิทธิภาพบน LimeSoda Dataset
+              </h2>
             </div>
 
             {/* Benchmark Table */}
@@ -398,7 +392,7 @@ export default function LandingPage() {
               {/* P3 */}
               <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
                 <div className="flex items-center justify-between">
-                  <span className="rounded-md bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 text-[10px] font-mono font-bold text-emerald-800 dark:text-emerald-300">
+                  <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P3 • AI Engineer
                   </span>
                   <span className="text-[10px] font-mono text-zinc-400">6752300216</span>
@@ -424,9 +418,9 @@ export default function LandingPage() {
               </div>
 
               {/* P5 */}
-              <div className="rounded-xl border border-emerald-200/90 dark:border-emerald-900/80 bg-emerald-50/30 dark:bg-emerald-950/20 p-4 space-y-2 shadow-2xs">
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
                 <div className="flex items-center justify-between">
-                  <span className="rounded-md bg-emerald-600 text-white px-2 py-0.5 text-[10px] font-mono font-bold">
+                  <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
                     P5 • Full Stack Engineer
                   </span>
                   <span className="text-[10px] font-mono text-zinc-400">6752300313</span>
