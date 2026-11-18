@@ -93,7 +93,7 @@ export const MetricsSummaryModal: React.FC<MetricsSummaryModalProps> = ({ isOpen
           <div className="rounded-lg bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/80 dark:border-zinc-800 p-3 text-xs space-y-1">
             <div className="flex items-center gap-1.5 font-bold text-slate-800 dark:text-zinc-200">
               <Info className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span>สรุปผลการวิเคราะห์เปรียบเทียบ (Model Comparison Insight):</span>
+              <span>สรุปผลการวิเคราะห์เปรียบเทียบ:</span>
             </div>
             <p className="text-slate-600 dark:text-zinc-400 leading-relaxed text-[11px]">
               โมเดล WangchanBERTa ทำคะแนน Fake F1 สูงถึง 0.925 เหนือกว่าโมเดล Baseline (0.902) โดยเฉพาะความครอบคลุมในการตรวจจับ (Recall 91.0% เทียบกับ 88.4%) เนื่องจากสถาปัตยกรรม RoBERTa เข้าใจบริบทไวยากรณ์ไทยและความเชื่อมโยงระยะไกลระหว่างอาการและคำอวดอ้างสรรพคุณเกินจริง

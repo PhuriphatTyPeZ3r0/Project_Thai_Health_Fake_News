@@ -61,12 +61,12 @@ export default function LandingPage() {
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-600/20 hover:bg-emerald-700 active:scale-[0.98] transition-all group"
                 >
                   <Sparkles className="h-4 w-4" />
-                  <span>เปิดห้องทดสอบ (Launch Studio)</span>
+                  <span>เปิดห้องทดสอบ</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
                 <a
-                  href="https://github.com/PhuriphatTyPeZ3r0/thai-health-fakenews"
+                  href="https://github.com/PhuriphatTyPeZ3r0/Project_Thai_Health_Fake_News"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-5 py-3.5 text-sm font-semibold text-slate-700 dark:text-zinc-200 shadow-2xs hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white active:scale-[0.98] transition-all"
@@ -284,12 +284,12 @@ export default function LandingPage() {
               <table className="w-full text-left text-xs sm:text-sm">
                 <thead className="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/50 text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-300">
                   <tr>
-                    <th className="py-3.5 px-4 sm:px-6">เกณฑ์ประเมิน (Evaluation Metric)</th>
+                    <th className="py-3.5 px-4 sm:px-6">เกณฑ์ประเมิน</th>
                     <th className="py-3.5 px-4 sm:px-6">TF-IDF Baseline</th>
                     <th className="py-3.5 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">
                       WangchanBERTa (Fine-tuned)
                     </th>
-                    <th className="py-3.5 px-4 sm:px-6">ผลลัพธ์ที่ดีขึ้น (Delta)</th>
+                    <th className="py-3.5 px-4 sm:px-6">ผลลัพธ์ที่ดีขึ้น</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-zinc-200/80 dark:divide-zinc-800/80 font-mono">
@@ -351,7 +351,7 @@ export default function LandingPage() {
                 <span>Team Roster & Contributions</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                ทีมงานผู้พัฒนาโครงงาน (NLP Mini Project)
+                ทีมงานผู้พัฒนาโครงงาน
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
                 หลักสูตรปัญญาประดิษฐ์ประยุกต์ (CAI) คณะวิศวกรรมศาสตร์และเทคโนโลยี สถาบันการจัดการปัญญาภิวัฒน์

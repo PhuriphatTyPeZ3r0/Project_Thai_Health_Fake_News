@@ -25,9 +25,9 @@ export const ThemeToggle: React.FC = () => {
   };
 
   const getLabel = () => {
-    if (theme === 'light') return 'โหมดสว่าง (Light)';
-    if (theme === 'dark') return 'โหมดมืด (Dark)';
-    return 'ตามระบบ (System)';
+    if (theme === 'light') return 'โหมดสว่าง';
+    if (theme === 'dark') return 'โหมดมืด';
+    return 'ตามระบบ';
   };
 
   return (

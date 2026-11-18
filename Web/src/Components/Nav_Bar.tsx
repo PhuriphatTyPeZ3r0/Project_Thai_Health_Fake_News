@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ mode = 'landing', onOpenMetrics 
               สถาปัตยกรรมโมเดลคู่
             </a>
             <a href="#benchmark" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-              เกณฑ์ประเมิน (Benchmark)
+              เกณฑ์ประเมิน
             </a>
             <a href="#team" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
               ทีมงาน P1–P6
@@ -59,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ mode = 'landing', onOpenMetrics 
           <ThemeToggle />
 
           <a
-            href="https://github.com/PhuriphatTyPeZ3r0/thai-health-fakenews"
+            href="https://github.com/PhuriphatTyPeZ3r0/Project_Thai_Health_Fake_News"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-zinc-50/80 dark:border-zinc-800 dark:bg-zinc-900 px-2.5 py-1.5 text-xs font-medium text-slate-600 dark:text-zinc-300 hover:bg-white dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all active:scale-[0.98]"

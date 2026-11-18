@@ -201,7 +201,7 @@ export default function StudioPage() {
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider">
               <Activity className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>ผลการวิเคราะห์โมเดล (Dual-Model Verdict)</span>
+              <span>ผลการวิเคราะห์โมเดล</span>
             </div>
 
             {loading ? (

@@ -55,7 +55,7 @@ export const HeroTeaserCard: React.FC = () => {
           <Activity className="h-3.5 w-3.5" />
         </div>
         <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-          ตัวอย่างการวิเคราะห์โมเดลคู่ (Live Teaser)
+          ตัวอย่างการวิเคราะห์โมเดลคู่
         </span>
       </div>
 
@@ -88,7 +88,7 @@ export const HeroTeaserCard: React.FC = () => {
       {/* Sample Text Box */}
       <div className="rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50/70 dark:bg-zinc-950/50 p-3.5 mb-4">
         <div className="text-[10px] font-mono uppercase text-slate-400 dark:text-zinc-500 mb-1">
-          ข้อความจำลอง (Sample Input):
+          ข้อความจำลอง:
         </div>
         <p className="text-xs sm:text-sm font-medium text-slate-800 dark:text-zinc-200 leading-relaxed italic">
           "{active.text}"
