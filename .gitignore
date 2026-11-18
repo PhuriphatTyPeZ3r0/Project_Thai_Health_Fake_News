@@ -46,3 +46,21 @@ Desktop.ini
 
 # Memory Agents
 graphify-out/
+
+# --- P3 fine-tune artifacts (repo uses Pascal_Case dirs; rules above are lowercase) ---
+Models/
+logs/
+runs/
+wandb/
+checkpoint-*/
+Data/Raw/*
+!Data/Raw/.gitkeep
+Web/node_modules/
+Web/.next/
+Web/out/
+Web/.vercel/
+Web/*.tsbuildinfo
+*.pt
+*.bin
+*.safetensors
+*.ckpt
