@@ -3,8 +3,8 @@
  * Validates NextAnalysisController, NewsEvaluation Model, and MockInferenceEngine.
  */
 
-import { NewsAnalysisController } from '../Src/Controllers/News_Analysis_Controller';
-import { MockInferenceEngine } from '../Src/Services/Mock_Inference_Engine';
+import { NewsAnalysisController } from '../src/Controllers/News_Analysis_Controller';
+import { MockInferenceEngine } from '../src/Services/Mock_Inference_Engine';
 
 interface TestCase {
   id: string;
