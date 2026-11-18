@@ -9,7 +9,7 @@ import { ModelComparisonCard, ShimmerComparisonCard } from '@/Components/Model_C
 import { MetricsSummaryModal } from '@/Components/Metrics_Summary_Modal';
 import { MobileActionBar } from '@/Components/Mobile_Action_Bar';
 import { ModelComparisonDTO } from '@/Types/Index';
-import { Search, Loader2, RefreshCw, AlertCircle, Activity, ArrowRight, ShieldCheck, ArrowLeft } from 'lucide-react';
+import { Search, Loader2, RefreshCw, AlertCircle, Activity, ArrowRight, ArrowLeft } from 'lucide-react';
 
 export default function StudioPage() {
   const [inputText, setInputText] = useState('');
@@ -83,10 +83,6 @@ export default function StudioPage() {
               <ArrowLeft className="h-3.5 w-3.5" />
               <span>กลับหน้าหลัก (Landing)</span>
             </Link>
-            <span className="text-zinc-300 dark:text-zinc-700">/</span>
-            <span className="text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800/80">
-              Interactive Studio
-            </span>
           </div>
         </div>
 
@@ -97,10 +93,6 @@ export default function StudioPage() {
           <div className="lg:col-span-7 space-y-5">
             {/* Minimalist Hero Heading */}
             <div className="space-y-1.5">
-              <div className="inline-flex items-center gap-1.5 rounded-md bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>ห้องปฏิบัติการตรวจจับข้อความสุขภาพบิดเบือนภาษาไทย</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 ห้องทดสอบและวิเคราะห์โมเดลคู่
               </h2>
