@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 15, 23, 42;
-  --background-rgb: 248, 250, 252;
-}
+@layer base {
+  :root {
+    --foreground-rgb: 15, 23, 42;
+    --background-rgb: 252, 253, 253;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--background-rgb));
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  .dark {
+    --foreground-rgb: 244, 244, 245;
+    --background-rgb: 9, 9, 11;
+  }
+
+  body {
+    font-family: var(--font-prompt), var(--font-inter), system-ui, -apple-system, sans-serif;
+  }
 }

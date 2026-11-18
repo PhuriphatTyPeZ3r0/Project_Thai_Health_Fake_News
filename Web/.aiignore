@@ -1,0 +1,10 @@
+# Ponytail AI Context Shield - WebApp
+node_modules/
+.next/
+out/
+build/
+pnpm-lock.yaml
+package-lock.json
+*.log
+.DS_Store
+Thumbs.db

@@ -35,11 +35,11 @@ export const SampleNewsPresets: React.FC<SampleNewsPresetsProps> = ({ onSelect, 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between text-xs">
-        <div className="flex items-center gap-1.5 font-semibold text-slate-500 uppercase tracking-wider text-[11px]">
-          <Sparkles className="h-3 w-3 text-emerald-600" />
+        <div className="flex items-center gap-1.5 font-semibold text-slate-500 dark:text-zinc-400 uppercase tracking-wider text-[11px]">
+          <Sparkles className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
           <span>ข้อความตัวอย่างสำหรับทดสอบ</span>
         </div>
-        <span className="text-[10px] text-slate-400 font-mono">1-Click Test</span>
+        <span className="text-[10px] text-slate-400 dark:text-zinc-500 font-mono">1-Click Test</span>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
@@ -51,7 +51,7 @@ export const SampleNewsPresets: React.FC<SampleNewsPresetsProps> = ({ onSelect, 
               type="button"
               disabled={disabled}
               onClick={() => onSelect(sample.text)}
-              className="group flex items-center justify-between rounded-lg border border-zinc-200/90 bg-white px-2.5 py-2 text-left text-xs font-medium text-slate-700 shadow-2xs hover:-translate-y-0.5 hover:border-zinc-300 hover:bg-zinc-50/60 transition-all active:scale-[0.98] disabled:opacity-50"
+              className="group flex items-center justify-between rounded-lg border border-zinc-200/90 bg-white dark:border-zinc-800 dark:bg-zinc-900 px-2.5 py-2 text-left text-xs font-medium text-slate-700 dark:text-zinc-300 shadow-2xs hover:-translate-y-0.5 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-50/60 dark:hover:bg-zinc-800/80 transition-all active:scale-[0.98] disabled:opacity-50"
             >
               <div className="flex items-center gap-2 truncate">
                 <span
@@ -59,9 +59,11 @@ export const SampleNewsPresets: React.FC<SampleNewsPresetsProps> = ({ onSelect, 
                     isFake ? 'bg-rose-500' : 'bg-emerald-500'
                   }`}
                 />
-                <span className="truncate group-hover:text-slate-900">{sample.title}</span>
+                <span className="truncate group-hover:text-slate-900 dark:group-hover:text-white">
+                  {sample.title}
+                </span>
               </div>
-              <span className="shrink-0 text-[10px] font-mono text-zinc-400 uppercase ml-1">
+              <span className="shrink-0 text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase ml-1">
                 {isFake ? 'Fake' : 'Fact'}
               </span>
             </button>

@@ -1,5 +1,21 @@
 import type { Metadata } from 'next';
+import { Prompt, Inter } from 'next/font/google';
+import { ThemeProvider } from '@/Components/Theme_Provider';
 import './globals.css';
+
+const prompt = Prompt({
+  subsets: ['thai', 'latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-prompt',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Thai Health Fake-News Detector | 1323404 NLP Mini Project',
@@ -12,8 +28,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="th">
-      <body className="antialiased min-h-screen bg-slate-50">{children}</body>
+    <html lang="th" suppressHydrationWarning className={`${prompt.variable} ${inter.variable}`}>
+      <body className="antialiased min-h-screen bg-[#fcfdfd] text-slate-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-200">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
