@@ -16,6 +16,7 @@ from pydantic import BaseModel, Field
 from typing import Dict, Any, Optional
 import time
 
+from Services.Inference.Rate_Limit import RateLimitMiddleware
 from Src.Predict import ModelUnavailableError, predict, _baseline_predictor, _wcb_predictor
 
 @asynccontextmanager
@@ -35,6 +36,9 @@ app = FastAPI(
     description="High-performance NLP inference service using WangchanBERTa and TF-IDF Baseline",
     version="1.0.0",
 )
+
+# Rate limit + overload protection (added first so CORS stays outermost and 429/503 carry CORS headers)
+app.add_middleware(RateLimitMiddleware)
 
 # Enable CORS for Next.js frontend
 app.add_middleware(

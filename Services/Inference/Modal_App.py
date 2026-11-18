@@ -81,6 +81,8 @@ image = (
             "WANGCHANBERTA_REVISION": MODEL_REVISION,
             "BASELINE_MODEL_PATH": BASELINE_PATH,
             "TOKENIZERS_PARALLELISM": "false",
+            "RATE_LIMIT_PER_MIN": "30",  # per client address, per container
+            "MAX_CONCURRENT": "4",  # simultaneous inference requests per container
         }
     )
     .add_local_dir(ROOT / "Src", f"{REMOTE_ROOT}/Src", copy=True, ignore=["__pycache__", "*.pyc"])
@@ -97,7 +99,9 @@ image = (
     gpu="T4",
     scaledown_window=300,  # keep warm 5 min, then scale to zero
     timeout=600,
+    max_containers=2,  # hard cap on GPUs (cost + abuse); per-client limits live in Rate_Limit.py
 )
+@modal.concurrent(max_inputs=8)  # one container serves several requests; Rate_Limit caps in-flight at MAX_CONCURRENT
 @modal.asgi_app()
 def fastapi_app():
     """Wrap the FastAPI application for Modal serverless ASGI serving."""
