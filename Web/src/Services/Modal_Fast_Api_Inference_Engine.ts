@@ -3,14 +3,23 @@ import { ModelComparisonDTO, ModelType, PredictionResultDTO } from '../Types/Ind
 
 /**
  * Concrete OOP Service: ModalFastApiInferenceEngine
- * Communicates with the remote Python FastAPI NLP engine running on Modal.
+ * Direct client for the live Python FastAPI NLP inference service deployed on Modal Serverless.
+ * Communicates with WangchanBERTa fine-tuned model and TF-IDF Baseline without mock fallback.
  */
 export class ModalFastApiInferenceEngine implements IInferenceEngine {
   private readonly baseUrl: string;
   private readonly timeoutMs: number;
 
-  constructor(baseUrl?: string, timeoutMs: number = 8000) {
-    this.baseUrl = baseUrl || process.env.MODAL_API_URL || 'http://localhost:8000';
+  constructor(
+    baseUrl?: string,
+    timeoutMs: number = 25000
+  ) {
+    this.baseUrl = (
+      baseUrl ||
+      process.env.MODAL_API_URL ||
+      process.env.NEXT_PUBLIC_MODAL_API_URL ||
+      'https://kitkhachon-xx--thai-health-fakenews-inference-fastapi-app.us-east.modal.run'
+    ).replace(/\/+$/, '');
     this.timeoutMs = timeoutMs;
   }
 
@@ -18,7 +27,7 @@ export class ModalFastApiInferenceEngine implements IInferenceEngine {
     try {
       const res = await fetch(`${this.baseUrl}/health`, {
         method: 'GET',
-        signal: AbortSignal.timeout(3000),
+        signal: AbortSignal.timeout(5000),
       });
       return res.ok;
     } catch {
@@ -35,8 +44,8 @@ export class ModalFastApiInferenceEngine implements IInferenceEngine {
     });
 
     if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`Inference engine HTTP error (${res.status}): ${errorText}`);
+      const errorText = await res.text().catch(() => '');
+      throw new Error(`Modal Inference API error (${res.status}): ${errorText || res.statusText}`);
     }
 
     const payload = await res.json();
@@ -55,8 +64,8 @@ export class ModalFastApiInferenceEngine implements IInferenceEngine {
     });
 
     if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`Inference comparison HTTP error (${res.status}): ${errorText}`);
+      const errorText = await res.text().catch(() => '');
+      throw new Error(`Modal Inference comparison error (${res.status}): ${errorText || res.statusText}`);
     }
 
     return await res.json();
