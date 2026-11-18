@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Github, BarChart2, ArrowRight, Sparkles } from 'lucide-react';
+import { Github, BarChart2 } from 'lucide-react';
 import { ThemeToggle } from './Theme_Toggle';
 import { AppLogo } from './App_Logo';
 
@@ -45,17 +45,6 @@ export const Navbar: React.FC<NavbarProps> = ({ mode = 'landing', onOpenMetrics 
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 sm:gap-2.5">
-          {mode === 'landing' && (
-            <Link
-              href="/studio"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-1.5 text-xs font-bold text-white shadow-2xs hover:bg-emerald-700 active:scale-[0.98] transition-all"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>เปิดห้องทดสอบ</span>
-              <ArrowRight className="h-3 w-3 opacity-80" />
-            </Link>
-          )}
-
           {onOpenMetrics && (
             <button
               type="button"

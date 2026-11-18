@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { Activity, ArrowRight, Cpu, BarChart } from 'lucide-react';
+import { Activity, Cpu, BarChart } from 'lucide-react';
 
 interface TeaserPreset {
   id: string;
@@ -170,15 +169,6 @@ export const HeroTeaserCard: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom CTA to Studio */}
-      <Link
-        href="/studio"
-        className="flex items-center justify-center gap-2 rounded-xl bg-slate-900 dark:bg-zinc-100 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white dark:text-zinc-900 dark:hover:text-white py-2.5 px-4 text-xs font-bold transition-all shadow-xs group active:scale-[0.98]"
-      >
-        <span>เปิด Studio เพื่อพิมพ์และวิเคราะห์ข่าวของคุณเอง</span>
-        <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
-      </Link>
     </div>
   );
 };
