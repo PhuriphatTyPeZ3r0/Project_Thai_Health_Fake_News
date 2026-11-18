@@ -1,230 +1,494 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Navbar } from '@/Components/Nav_Bar';
+import { HeroTeaserCard } from '@/Components/Landing/Hero_Teaser_Card';
 import { DisclaimerBanner } from '@/Components/Disclaimer_Banner';
-import { SampleNewsPresets } from '@/Components/Sample_News_Presets';
-import { ModelComparisonCard, ShimmerComparisonCard } from '@/Components/Model_Comparison_Card';
 import { MetricsSummaryModal } from '@/Components/Metrics_Summary_Modal';
-import { MobileActionBar } from '@/Components/Mobile_Action_Bar';
-import { ModelComparisonDTO } from '@/Types/Index';
-import { Search, Loader2, RefreshCw, AlertCircle, Activity, ArrowRight, ShieldCheck } from 'lucide-react';
+import {
+  Sparkles,
+  ArrowRight,
+  Github,
+  FileText,
+  ShieldCheck,
+  CheckCircle2,
+  Cpu,
+  BarChart2,
+  AlertTriangle,
+  Zap,
+  Layers,
+  HeartPulse,
+  Users,
+  Award,
+} from 'lucide-react';
 
-export default function HomePage() {
-  const [inputText, setInputText] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [validationErrors, setValidationErrors] = useState<string[]>([]);
-  const [comparisonResult, setComparisonResult] = useState<ModelComparisonDTO | null>(null);
+export default function LandingPage() {
   const [showMetricsModal, setShowMetricsModal] = useState(false);
-
-  const handleAnalyze = async (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    setErrorMsg(null);
-    setValidationErrors([]);
-
-    if (!inputText.trim()) {
-      setValidationErrors(['กรุณาระบุข้อความข่าวสารสุขภาพที่ต้องการตรวจสอบ']);
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const res = await fetch('/api/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: inputText, model_type: 'both' }),
-      });
-
-      const json = await res.json();
-      if (!res.ok || !json.success) {
-        if (json.validationErrors) {
-          setValidationErrors(json.validationErrors);
-        } else {
-          setErrorMsg(json.error || 'เกิดข้อผิดพลาดในการวิเคราะห์ข้อความ');
-        }
-        setComparisonResult(null);
-      } else {
-        setComparisonResult(json.data);
-      }
-    } catch (err: any) {
-      setErrorMsg(err.message || 'ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handlePresetSelect = (text: string) => {
-    setInputText(text);
-    setErrorMsg(null);
-    setValidationErrors([]);
-  };
-
-  const handleClear = () => {
-    setInputText('');
-    setComparisonResult(null);
-    setErrorMsg(null);
-    setValidationErrors([]);
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fcfdfd] dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 selection:bg-emerald-100 dark:selection:bg-emerald-950 selection:text-emerald-900 dark:selection:text-emerald-200 transition-colors duration-200">
-      <Navbar onOpenMetrics={() => setShowMetricsModal(true)} />
+      <Navbar mode="landing" onOpenMetrics={() => setShowMetricsModal(true)} />
 
-      <main className="container mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8 flex-1">
-        {/* Split-Screen Studio Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          
-          {/* Left Column: Input & Controls (Span 7) */}
-          <div className="lg:col-span-7 space-y-5">
-            {/* Minimalist Hero Heading */}
-            <div className="space-y-1.5">
-              <div className="inline-flex items-center gap-1.5 rounded-md bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-1 text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>การจำแนกข่าวสารสุขภาพภาษาไทยด้วย Transformer & NLP</span>
+      <main className="flex-1 space-y-16 sm:space-y-24 pb-16">
+        
+        {/* ========================================================= */}
+        {/* SECTION 1: HERO SECTION (One screen aware at 1440x900)    */}
+        {/* ========================================================= */}
+        <section className="container mx-auto max-w-7xl px-4 sm:px-6 pt-10 sm:pt-16 lg:pt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Headline, Copy & CTAs (Span 7) */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Academic Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/90 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/40 px-3 py-1 text-xs font-semibold text-emerald-800 dark:text-emerald-300">
+                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>1323404 NLP Mini Project • CAI PIM</span>
+              </div>
+
+              {/* Anti-Slop Headline */}
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                  ตรวจจับข่าวสุขภาพปลอม <br className="hidden sm:inline" />
+                  <span className="text-emerald-600 dark:text-emerald-400">
+                    ด้วยปัญญาประดิษฐ์ภาษาไทย
+                  </span>
+                </h1>
+                <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-zinc-300 max-w-xl font-normal leading-relaxed">
+                  สถาปัตยกรรมโมเดลคู่ <strong>WangchanBERTa Fine-tuned</strong> ควบคู่กับ <strong>TF-IDF Baseline</strong> เพื่อการตรวจสอบข้อความสุขภาพและคำกล่าวอ้างเกินจริงแบบเรียลไทม์
+                </p>
+              </div>
+
+              {/* Dual CTA Group */}
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Link
+                  href="/studio"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-emerald-600/20 hover:bg-emerald-700 active:scale-[0.98] transition-all group"
+                >
+                  <Sparkles className="h-4 w-4" />
+                  <span>เปิดห้องทดสอบ (Launch Studio)</span>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <a
+                  href="https://github.com/PhuriphatTyPeZ3r0/thai-health-fakenews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-5 py-3.5 text-sm font-semibold text-slate-700 dark:text-zinc-200 shadow-2xs hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-white active:scale-[0.98] transition-all"
+                >
+                  <Github className="h-4 w-4" />
+                  <span>GitHub Repository</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setShowMetricsModal(true)}
+                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-transparent px-4 py-3.5 text-xs font-semibold text-slate-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+                >
+                  <BarChart2 className="h-4 w-4" />
+                  <span>สรุปเกณฑ์ประเมิน</span>
+                </button>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-zinc-400 border-t border-zinc-100 dark:border-zinc-800/80">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>ชุดข้อมูลมาตรฐาน LimeSoda</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>ระบบทดสอบ 20/20 Test Cases Pass</span>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Zap className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>ตอบสนอง &lt;100ms</span>
+                </span>
+              </div>
+
+            </div>
+
+            {/* Right Column: Hero Interactive Teaser Card (Span 5) */}
+            <div className="lg:col-span-5">
+              <HeroTeaserCard />
+            </div>
+
+          </div>
+        </section>
+
+
+        {/* ========================================================= */}
+        {/* SECTION 2: WHY NLP & THE CHALLENGE                        */}
+        {/* ========================================================= */}
+        <section id="problem" className="container mx-auto max-w-7xl px-4 sm:px-6 pt-6">
+          <div className="border-t border-zinc-200/80 dark:border-zinc-800/80 pt-14 space-y-8">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                <HeartPulse className="h-4 w-4" />
+                <span>The Challenge & Motivation</span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                ห้องตรวจสอบข่าวสุขภาพปลอม
+                ทำไมข่าวปลอมด้านสุขภาพจึงต้องใช้ NLP เข้ามาช่วยคัดกรอง?
               </h2>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 max-w-xl leading-relaxed">
-                เปรียบเทียบผลลัพธ์ระหว่างโมเดลโครงข่ายภาษา <strong>WangchanBERTa Fine-tuned</strong> และ <strong>TF-IDF Baseline</strong> แบบเรียลไทม์เพื่อตรวจจับข้อมูลบิดเบือน
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
+                ข่าวปลอมและข้อมูลบิดเบือนด้านการแพทย์สร้างความเสียหายต่อชีวิตโดยตรง หากปล่อยให้การตรวจสอบพึ่งพาผู้เชี่ยวชาญเพียงอย่างเดียวจะไม่ทันต่ออัตราการแพร่กระจาย
               </p>
             </div>
 
-            {/* Presets */}
-            <SampleNewsPresets onSelect={handlePresetSelect} disabled={loading} />
-
-            {/* Main Input Form */}
-            <form onSubmit={handleAnalyze} className="rounded-xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-4 sm:p-5 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between">
-                <label htmlFor="news-input" className="text-xs font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider">
-                  ข้อความที่ต้องการวิเคราะห์
-                </label>
-                <span
-                  className={`text-[11px] font-mono ${
-                    inputText.length > 1500 ? 'text-rose-500 font-bold' : 'text-slate-400 dark:text-zinc-500'
-                  }`}
-                >
-                  {inputText.length} / 2,000 ตัวอักษร
-                </span>
+            {/* 3 Pillars Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Card 1 */}
+              <div className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 space-y-3 shadow-2xs hover:-translate-y-0.5 transition-all">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400">
+                  <AlertTriangle className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  อันตรายถึงชีวิตจากการหยุดยา
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  ข่าวปลอมมักจูงใจให้ผู้ป่วยโรคเรื้อรัง (เช่น เบาหวาน มะเร็ง ไต) หยุดการรักษาแผนปัจจุบันไปรับประทานสมุนไพรที่ไม่ผ่านการรับรอง ส่งผลให้อาการทรุดหนัก
+                </p>
               </div>
 
-              <textarea
-                id="news-input"
-                rows={5}
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                placeholder="วางข้อความพาดหัวข่าว หรือข้อความคำกล่าวอ้างทางสุขภาพที่ต้องการตรวจสอบที่นี่..."
-                className="w-full rounded-lg border border-zinc-200 dark:border-zinc-800 bg-transparent p-3.5 text-sm text-slate-900 dark:text-zinc-100 placeholder-slate-400 dark:placeholder-zinc-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 focus:outline-hidden transition"
-                disabled={loading}
-              />
-
-              {/* Validation Alerts */}
-              {validationErrors.length > 0 && (
-                <div className="rounded-lg border border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30 p-3 text-xs text-rose-800 dark:text-rose-300 space-y-1">
-                  <div className="flex items-center gap-1.5 font-semibold">
-                    <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0" />
-                    <span>โปรดตรวจสอบข้อผิดพลาด:</span>
-                  </div>
-                  <ul className="list-disc list-inside space-y-0.5 pl-4 text-[11px]">
-                    {validationErrors.map((err, i) => (
-                      <li key={i}>{err}</li>
-                    ))}
-                  </ul>
+              {/* Card 2 */}
+              <div className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 space-y-3 shadow-2xs hover:-translate-y-0.5 transition-all">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+                  <Layers className="h-5 w-5" />
                 </div>
-              )}
-
-              {errorMsg && (
-                <div className="rounded-lg border border-rose-200 dark:border-rose-900/60 bg-rose-50/70 dark:bg-rose-950/30 p-3 text-xs text-rose-800 dark:text-rose-300 flex items-center gap-2">
-                  <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0" />
-                  <span>{errorMsg}</span>
-                </div>
-              )}
-
-              {/* Desktop Buttons */}
-              <div className="flex items-center justify-between pt-1">
-                <div className="flex items-center gap-2">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-5 py-2.5 text-xs font-bold text-white shadow-2xs hover:bg-emerald-700 active:scale-[0.98] transition-all disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        <span>กำลังประมวลผล...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Search className="h-3.5 w-3.5" />
-                        <span>เริ่มการวิเคราะห์โมเดลคู่</span>
-                        <ArrowRight className="h-3 w-3 opacity-70" />
-                      </>
-                    )}
-                  </button>
-
-                  {inputText && (
-                    <button
-                      type="button"
-                      onClick={handleClear}
-                      disabled={loading}
-                      className="flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-800 px-3.5 py-2.5 text-xs font-medium text-slate-600 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-700 hover:text-slate-900 dark:hover:text-white active:scale-[0.98] transition-all"
-                    >
-                      <RefreshCw className="h-3 w-3" />
-                      <span>ล้างข้อมูล</span>
-                    </button>
-                  )}
-                </div>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  โครงสร้างภาษาไทยที่ไร้ช่องไฟ
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  ข้อความภาษาไทยไม่มีการเว้นวรรคคำและมีคำกำกวมสูง ระบบแบบจับคำค้นหา (Keyword Matching) จึงเกิดข้อผิดพลาดได้ง่าย การใช้ Transformer ช่วยทำความเข้าใจบริบททั้งประโยค
+                </p>
               </div>
-            </form>
+
+              {/* Card 3 */}
+              <div className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 space-y-3 shadow-2xs hover:-translate-y-0.5 transition-all">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                  ความเร็วในการแพร่กระจายสูง
+                </h3>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  ข่าวสารในกลุ่มแชตและโซเชียลมียอดแชร์ต่อวันนับหมื่นข้อความ AI Inference Service ช่วยตรวจคัดกรองเบื้องต้นได้ทันทีในเวลาไม่ถึง 0.1 วินาที
+                </p>
+              </div>
+
+            </div>
           </div>
+        </section>
 
-          {/* Right Column: Dual-Model Verdict & Comparison (Span 5) */}
-          <div className="lg:col-span-5 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-zinc-200 uppercase tracking-wider">
-                <Activity className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>ผลการวิเคราะห์โมเดล (Dual-Model Verdict)</span>
+
+        {/* ========================================================= */}
+        {/* SECTION 3: DUAL-MODEL ARCHITECTURE                        */}
+        {/* ========================================================= */}
+        <section id="models" className="container mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="border-t border-zinc-200/80 dark:border-zinc-800/80 pt-14 space-y-8">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                <Cpu className="h-4 w-4" />
+                <span>Architecture & Innovation</span>
               </div>
-              {comparisonResult && (
-                <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800">
-                  Real-time Consensus
-                </span>
-              )}
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                สถาปัตยกรรมโมเดลคู่ (Dual-Model Architecture)
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
+                การนำโมเดล Deep Learning Transformer มาประเมินร่วมกับ Classical Machine Learning ช่วยเพิ่มความน่าเชื่อถือผ่านการ Cross-validate มติของโมเดล
+              </p>
             </div>
 
-            {loading ? (
-              <ShimmerComparisonCard />
-            ) : comparisonResult ? (
-              <ModelComparisonCard comparison={comparisonResult} />
-            ) : (
-              /* Idle Empty State */
-              <div className="rounded-xl border border-dashed border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 p-8 text-center space-y-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700 shadow-2xs mx-auto text-zinc-400 dark:text-zinc-500">
-                  <Activity className="h-6 w-6" />
+            {/* Model Comparison Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              {/* Model 1: WangchanBERTa */}
+              <div className="rounded-2xl border border-emerald-200/80 dark:border-emerald-900/60 bg-white dark:bg-zinc-900/80 p-6 space-y-4 shadow-xs relative overflow-hidden">
+                <div className="absolute top-0 right-0 rounded-bl-xl bg-emerald-600 text-white px-3 py-1 text-[10px] font-mono font-bold">
+                  Main Model
                 </div>
-                <div className="space-y-1 max-w-xs mx-auto">
-                  <h4 className="text-xs font-bold text-slate-800 dark:text-zinc-200">ระบบพร้อมรับข้อความ</h4>
-                  <p className="text-[11px] text-slate-500 dark:text-zinc-400 leading-relaxed">
-                    วางข้อความข่าวสารทางสุขภาพในช่องด้านซ้าย หรือเลือกตัวอย่างเพื่อเปรียบเทียบผลลัพธ์ของโมเดลคู่แบบทันที
-                  </p>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400">
+                    <Cpu className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      WangchanBERTa Fine-tuned
+                    </h3>
+                    <p className="text-xs font-mono text-emerald-700 dark:text-emerald-400">
+                      RoBERTa-based Thai Language Model
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="space-y-2 text-xs text-slate-600 dark:text-zinc-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Pretrained:</strong> พัฒนาโดย VISTEC มีความเชี่ยวชาญไวยากรณ์และบริบทภาษาไทยขั้นสูง</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Tokenizer:</strong> SentencePiece (Unigram) ตัดคำและจัดการคำที่ไม่เคยพบ (OOV) ได้ยอดเยี่ยม</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span><strong>Self-Attention:</strong> จับความเชื่อมโยงระยะไกลระหว่าง "ชื่อโรค" และ "คำอวดอ้างสรรพคุณเกินจริง"</span>
+                  </li>
+                </ul>
+
+                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
+                  <span className="text-zinc-500">Macro F1: <strong className="text-emerald-600 dark:text-emerald-400">0.909</strong></span>
+                  <span className="text-zinc-500">Fake F1: <strong className="text-emerald-600 dark:text-emerald-400">0.925</strong></span>
+                  <span className="text-zinc-500">Accuracy: <strong className="text-emerald-600 dark:text-emerald-400">91.4%</strong></span>
                 </div>
               </div>
-            )}
-          </div>
 
-        </div>
+              {/* Model 2: TF-IDF Baseline */}
+              <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-6 space-y-4 shadow-xs relative overflow-hidden">
+                <div className="absolute top-0 right-0 rounded-bl-xl bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-3 py-1 text-[10px] font-mono font-bold">
+                  Baseline
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+                    <BarChart2 className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                      TF-IDF + Logistic Regression
+                    </h3>
+                    <p className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                      Classical Statistical Baseline
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="space-y-2 text-xs text-slate-600 dark:text-zinc-300">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
+                    <span><strong>N-gram Representation:</strong> แปลงข้อความเป็นเวกเตอร์ความถี่คำ (Term Frequency-Inverse Document Frequency)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
+                    <span><strong>Linear Decision Boundary:</strong> จำแนกด้วย Logistic Regression น้ำหนักคำโปร่งใส ตรวจสอบง่าย</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-zinc-500 dark:text-zinc-400 shrink-0 mt-0.5" />
+                    <span><strong>Ultra-low Latency:</strong> ใช้ทรัพยากรประมวลผลต่ำมาก (&lt;15ms) ทำหน้าที่เป็น Safety Guardrail</span>
+                  </li>
+                </ul>
+
+                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
+                  <span className="text-zinc-500">Macro F1: <strong>0.812</strong></span>
+                  <span className="text-zinc-500">Fake F1: <strong>0.830</strong></span>
+                  <span className="text-zinc-500">Accuracy: <strong>82.5%</strong></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+        {/* ========================================================= */}
+        {/* SECTION 4: BENCHMARKS & EVALUATION                        */}
+        {/* ========================================================= */}
+        <section id="benchmark" className="container mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="border-t border-zinc-200/80 dark:border-zinc-800/80 pt-14 space-y-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+              <div className="space-y-2 max-w-2xl">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  <Award className="h-4 w-4" />
+                  <span>Evaluation & Benchmark</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                  ตารางเปรียบเทียบประสิทธิภาพบน LimeSoda Dataset
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
+                  วัดผลบนชุดทดสอบ (Test Set) ด้วย Stratified Split 80/10/10 พร้อมทดสอบจริงผ่าน 20 System Cases
+                </p>
+              </div>
+
+              <div className="inline-flex items-center gap-2 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/70 dark:bg-emerald-950/40 px-3.5 py-2 text-xs font-semibold text-emerald-800 dark:text-emerald-300">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                <span>20/20 Test Cases Pass (100%)</span>
+              </div>
+            </div>
+
+            {/* Benchmark Table */}
+            <div className="overflow-x-auto rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 shadow-2xs">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-800/50 text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-300">
+                  <tr>
+                    <th className="py-3.5 px-4 sm:px-6">เกณฑ์ประเมิน (Evaluation Metric)</th>
+                    <th className="py-3.5 px-4 sm:px-6">TF-IDF Baseline</th>
+                    <th className="py-3.5 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">
+                      WangchanBERTa (Fine-tuned)
+                    </th>
+                    <th className="py-3.5 px-4 sm:px-6">ผลลัพธ์ที่ดีขึ้น (Delta)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-zinc-200/80 dark:divide-zinc-800/80 font-mono">
+                  <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
+                    <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
+                      Accuracy (ความถูกต้องโดยรวม)
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">82.5%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">91.4%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+8.9%</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
+                    <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
+                      Precision (ความแม่นยำ)
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">81.2%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">90.8%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+9.6%</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
+                    <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
+                      Recall (ความครอบคลุม)
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">80.4%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">91.0%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+10.6%</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
+                    <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
+                      Macro F1-Score
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.812</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.909</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.097</td>
+                  </tr>
+                  <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
+                    <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
+                      Fake F1-Score (เน้นจับข่าวปลอม)
+                    </td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.830</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.925</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.095</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        {/* ========================================================= */}
+        {/* SECTION 5: TEAM ROSTER (P1-P6)                            */}
+        {/* ========================================================= */}
+        <section id="team" className="container mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="border-t border-zinc-200/80 dark:border-zinc-800/80 pt-14 space-y-8">
+            <div className="space-y-2 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                <Users className="h-4 w-4" />
+                <span>Team Roster & Contributions</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                ทีมงานผู้พัฒนาโครงงาน (NLP Mini Project)
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
+                หลักสูตรปัญญาประดิษฐ์ประยุกต์ (CAI) คณะวิศวกรรมศาสตร์และเทคโนโลยี สถาบันการจัดการปัญญาภิวัฒน์
+              </p>
+            </div>
+
+            {/* 6 Members Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              {/* P1 */}
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
+                    P1 • Data Engineer
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400">6752300135</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">ชลธร หรั่งศิริ</h4>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  รับผิดชอบ LimeSoda Data Pipeline, Deduplication, และ Stratified Split (80/10/10)
+                </p>
+              </div>
+
+              {/* P2 */}
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
+                    P2 • Baseline Engineer
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400">6752300488</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">มิตรภักดิ์ กล่อมใจ</h4>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  รับผิดชอบ Metrics Module (F1, Accuracy, Precision, Recall) และ TF-IDF Baseline Model
+                </p>
+              </div>
+
+              {/* P3 */}
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-md bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 text-[10px] font-mono font-bold text-emerald-800 dark:text-emerald-300">
+                    P3 • AI Engineer
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400">6752300216</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">กฤษขจร จิรวงศ์รุ่งเรือง</h4>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  รับผิดชอบ Fine-tuning WangchanBERTa บน Colab GPU และประเมินผล Main Model
+                </p>
+              </div>
+
+              {/* P4 */}
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
+                    P4 • QA & Error Analyst
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400">6752300607</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">ปรัชญา ชอบมะรัง</h4>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  รับผิดชอบ System Testing 20 Test Cases, Model Comparison และ Error Analysis ≥20 เคส
+                </p>
+              </div>
+
+              {/* P5 */}
+              <div className="rounded-xl border border-emerald-200/90 dark:border-emerald-900/80 bg-emerald-50/30 dark:bg-emerald-950/20 p-4 space-y-2 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-md bg-emerald-600 text-white px-2 py-0.5 text-[10px] font-mono font-bold">
+                    P5 • Full Stack Engineer
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400">6752300313</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">ภูริพัฒน์ เหมกุล</h4>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  รับผิดชอบ Next.js 14 MVC/OOP WebApp, Dual-Model UI, Taste Skill Design, และ Modal GPU Service
+                </p>
+              </div>
+
+              {/* P6 */}
+              <div className="rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-4 space-y-2 shadow-2xs">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono font-bold text-zinc-600 dark:text-zinc-300">
+                    P6 • Project Lead & Doc
+                  </span>
+                  <span className="text-[10px] font-mono text-zinc-400">6752300968</span>
+                </div>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">เมธีรา ภูภักดี</h4>
+                <p className="text-xs text-slate-500 dark:text-zinc-400">
+                  รับผิดชอบ Repository Setup, README 4 หัวข้อหลัก, สไลด์นำเสนอ, และ Live Demo Rehearsal
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
       </main>
 
       <DisclaimerBanner />
-
-      {/* Mobile Bottom Action Bar */}
-      <MobileActionBar
-        onAnalyze={() => handleAnalyze()}
-        onClear={handleClear}
-        loading={loading}
-        hasInput={inputText.trim().length > 0}
-      />
 
       <MetricsSummaryModal
         isOpen={showMetricsModal}
