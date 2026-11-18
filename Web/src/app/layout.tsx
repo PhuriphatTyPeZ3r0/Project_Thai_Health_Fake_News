@@ -21,10 +21,12 @@ export const metadata: Metadata = {
   description: 'Thai Health Fake-News Detection using fine-tuned WangchanBERTa and TF-IDF Baseline with Next.js MVC OOP architecture.',
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png' },
     ],
-    shortcut: '/icon.svg',
-    apple: '/icon.svg',
+    shortcut: '/favicon.ico',
+    apple: '/icon.png',
   },
 };
 
