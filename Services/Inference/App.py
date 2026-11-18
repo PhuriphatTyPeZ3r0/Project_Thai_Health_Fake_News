@@ -4,15 +4,33 @@ Handles real-time inference for Thai Health Fake-News Detection.
 Exposes RESTful endpoints for the Next.js MVC WebApp.
 """
 
+import sys
+from contextlib import asynccontextmanager
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # repo root, so `python Services/Inference/App.py` works
+
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from typing import Dict, Any, Optional
 import time
 
-from Src.Predict import predict, _baseline_predictor, _wcb_predictor
+from Src.Predict import ModelUnavailableError, predict, _baseline_predictor, _wcb_predictor
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    """Load the fine-tuned model at startup (not on the first user request). A failure is not fatal:
+    endpoints then answer 503 until it loads (retried every 60 s)."""
+    try:
+        _wcb_predictor.lazy_load()
+    except ModelUnavailableError as e:
+        print(f"[startup] {e}")
+    yield
+
 
 app = FastAPI(
+    lifespan=lifespan,
     title="Thai Health Fake-News Inference API",
     description="High-performance NLP inference service using WangchanBERTa and TF-IDF Baseline",
     version="1.0.0",
@@ -29,7 +47,7 @@ app.add_middleware(
 
 
 class NewsInferenceRequest(BaseModel):
-    text: str = Field(..., min_length=3, max_length=1500, description="Thai health news or claim text")
+    text: str = Field(..., min_length=3, max_length=2000, description="Thai health news or claim text")
     model_type: Optional[str] = Field("wangchanberta", description="'wangchanberta', 'baseline', or 'both'")
 
 
@@ -47,12 +65,18 @@ class DualComparisonResponse(BaseModel):
     latency_ms: float
 
 
-@app.get("/health", status_code=status.HTTP_200_OK)
+@app.get("/health")
 def health_check():
+    """Healthy only when the fine-tuned WangchanBERTa is actually loaded (loads it on first call)."""
+    try:
+        _wcb_predictor.lazy_load()
+    except ModelUnavailableError as e:
+        raise HTTPException(status_code=503, detail=str(e))
     return {
         "status": "healthy",
         "service": "thai-health-fakenews-inference",
-        "models_available": ["wangchanberta", "baseline_tfidf_logreg"],
+        "wangchanberta": _wcb_predictor.status(),
+        "baseline": _baseline_predictor.status(),
     }
 
 
@@ -63,7 +87,10 @@ def predict_endpoint(req: NewsInferenceRequest):
     if not cleaned:
         raise HTTPException(status_code=400, detail="Text cannot be empty.")
 
-    result = predict(cleaned, model_type=req.model_type)
+    try:
+        result = predict(cleaned, model_type=req.model_type)
+    except ModelUnavailableError as e:
+        raise HTTPException(status_code=503, detail=str(e))
     elapsed = round((time.time() - start_t) * 1000, 2)
     return {
         "success": True,
@@ -79,8 +106,11 @@ def compare_endpoint(req: NewsInferenceRequest):
     if not cleaned:
         raise HTTPException(status_code=400, detail="Text cannot be empty.")
 
-    wcb_res = _wcb_predictor.predict(cleaned)
-    base_res = _baseline_predictor.predict(cleaned)
+    try:
+        wcb_res = _wcb_predictor.predict(cleaned)
+        base_res = _baseline_predictor.predict(cleaned)
+    except ModelUnavailableError as e:
+        raise HTTPException(status_code=503, detail=str(e))
 
     agreement = wcb_res.get("label") == base_res.get("label")
     elapsed = round((time.time() - start_t) * 1000, 2)

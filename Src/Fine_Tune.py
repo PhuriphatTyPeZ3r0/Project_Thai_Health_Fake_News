@@ -27,46 +27,10 @@ from transformers import (
 )
 
 from Src.Metrics import compute
+from Src.Windowing import MAX_CHUNKS, MAX_LENGTH, STRIDE, aggregate_by_doc, make_chunks  # noqa: F401 (re-exported)
 
 MODEL_CHECKPOINT = "airesearch/wangchanberta-base-att-spm-uncased"
 HUB_MODEL_ID = "Kitkhachon/wcb-limesoda-fakenews-v2"
-MAX_LENGTH = 416
-STRIDE = 64        # token overlap between consecutive windows
-MAX_CHUNKS = 8     # cap windows per doc (bounds compute on very long docs; max doc ~9k tokens)
-
-
-def make_chunks(tokenizer, texts, labels):
-    """Split each text into overlapping windows. Returns (features dict, doc_ids list)."""
-    enc = tokenizer(
-        list(texts),
-        truncation=True,
-        max_length=MAX_LENGTH,
-        stride=STRIDE,
-        return_overflowing_tokens=True,
-    )
-    feats = {"input_ids": [], "attention_mask": [], "labels": []}
-    doc_ids, seen = [], {}
-    for i, doc in enumerate(enc["overflow_to_sample_mapping"]):
-        if seen.get(doc, 0) >= MAX_CHUNKS:
-            continue
-        seen[doc] = seen.get(doc, 0) + 1
-        feats["input_ids"].append(enc["input_ids"][i])
-        feats["attention_mask"].append(enc["attention_mask"][i])
-        feats["labels"].append(int(labels[doc]))
-        doc_ids.append(doc)
-    return feats, doc_ids
-
-
-def aggregate_by_doc(logits, doc_ids, n_docs):
-    """Mean of softmax probabilities over each doc's windows -> predicted label per doc."""
-    logits = np.asarray(logits, dtype=np.float64)
-    probs = np.exp(logits - logits.max(axis=-1, keepdims=True))
-    probs /= probs.sum(axis=-1, keepdims=True)
-    doc_ids = np.asarray(doc_ids)
-    out = np.zeros((n_docs, probs.shape[1]))
-    np.add.at(out, doc_ids, probs)
-    out /= np.bincount(doc_ids, minlength=n_docs)[:, None]
-    return out.argmax(axis=-1)
 
 
 def make_compute_metrics(doc_ids, doc_labels):
