@@ -2,9 +2,9 @@
 Task B1-B3:
 - TF-IDF Vectorizer with PyThaiNLP word tokenization
 - Logistic Regression Classifier
-- Train on data/processed/train.csv
-- Evaluate on data/processed/test.csv using src.metrics.compute
-- Output: results/metrics_baseline.json, models/baseline_model.joblib
+- Train on Data/Processed/train.csv
+- Evaluate on Data/Processed/test.csv using Src.Metrics.compute
+- Output: Results/Metrics_Baseline.json, Models/Baseline_Model.joblib
 """
 
 import os
@@ -36,16 +36,16 @@ def build_baseline_pipeline() -> Pipeline:
 
 
 def train_and_evaluate(
-    train_csv: str = "data/processed/train.csv",
-    test_csv: str = "data/processed/test.csv",
-    metrics_output: str = "results/metrics_baseline.json",
-    model_output: str = "models/baseline_model.joblib",
+    train_csv: str = "Data/Processed/train.csv",
+    test_csv: str = "Data/Processed/test.csv",
+    metrics_output: str = "Results/Metrics_Baseline.json",
+    model_output: str = "Models/Baseline_Model.joblib",
 ):
     train_path = Path(train_csv)
     test_path = Path(test_csv)
 
     if not train_path.exists() or not test_path.exists():
-        raise FileNotFoundError(f"Processed datasets not found at {train_path} / {test_path}. Run data_pipeline.py first.")
+        raise FileNotFoundError(f"Processed datasets not found at {train_path} / {test_path}. Run Src.Data_Pipeline first.")
 
     train_df = pd.read_csv(train_path)
     test_df = pd.read_csv(test_path)
