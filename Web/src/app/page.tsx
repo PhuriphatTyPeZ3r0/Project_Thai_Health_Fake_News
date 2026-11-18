@@ -41,12 +41,6 @@ export default function LandingPage() {
             {/* Left Column: Headline, Copy & CTAs (Span 7) */}
             <div className="lg:col-span-7 space-y-6">
               
-              {/* Academic Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200/90 dark:border-emerald-900/60 bg-emerald-50/70 dark:bg-emerald-950/40 px-3 py-1 text-xs font-semibold text-emerald-800 dark:text-emerald-300">
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>1323404 NLP Mini Project • CAI PIM</span>
-              </div>
-
               {/* Anti-Slop Headline */}
               <div className="space-y-3">
                 <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
@@ -80,31 +74,6 @@ export default function LandingPage() {
                   <Github className="h-4 w-4" />
                   <span>GitHub Repository</span>
                 </a>
-
-                <button
-                  type="button"
-                  onClick={() => setShowMetricsModal(true)}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-transparent px-4 py-3.5 text-xs font-semibold text-slate-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
-                >
-                  <BarChart2 className="h-4 w-4" />
-                  <span>สรุปเกณฑ์ประเมิน</span>
-                </button>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-zinc-400 border-t border-zinc-100 dark:border-zinc-800/80">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>ชุดข้อมูลมาตรฐาน LimeSoda</span>
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>ระบบทดสอบ 20/20 Test Cases Pass</span>
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Zap className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>ตอบสนอง &lt;100ms</span>
-                </span>
               </div>
 
             </div>

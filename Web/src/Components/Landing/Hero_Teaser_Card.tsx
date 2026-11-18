@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Activity, ShieldCheck, AlertTriangle, ArrowRight, CheckCircle2, Cpu, BarChart } from 'lucide-react';
+import { Activity, ArrowRight, Cpu, BarChart } from 'lucide-react';
 
 interface TeaserPreset {
   id: string;
@@ -50,20 +50,14 @@ export const HeroTeaserCard: React.FC = () => {
 
   return (
     <div className="rounded-2xl border border-zinc-200/90 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/90 p-5 sm:p-6 shadow-xl shadow-zinc-200/40 dark:shadow-none backdrop-blur-md transition-all">
-      {/* Top Header & Live Indicator */}
-      <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-3.5 mb-4">
-        <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400">
-            <Activity className="h-3.5 w-3.5" />
-          </div>
-          <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200">
-            Dealt Moment • ตัวอย่างการวิเคราะห์โมเดลคู่
-          </span>
+      {/* Top Header */}
+      <div className="flex items-center gap-2 border-b border-zinc-100 dark:border-zinc-800/80 pb-3 mb-4">
+        <div className="flex h-6 w-6 items-center justify-center rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400">
+          <Activity className="h-3.5 w-3.5" />
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200/80 dark:border-emerald-800/60">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Real-time Consensus</span>
-        </div>
+        <span className="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-zinc-200">
+          ตัวอย่างการวิเคราะห์โมเดลคู่ (Live Teaser)
+        </span>
       </div>
 
       {/* Preset Buttons */}
@@ -174,30 +168,6 @@ export const HeroTeaserCard: React.FC = () => {
               style={{ width: `${active.baselineConfidence}%` }}
             />
           </div>
-        </div>
-      </div>
-
-      {/* Consensus Verdict Ribbon */}
-      <div
-        className={`rounded-xl p-3 flex items-start gap-2.5 text-xs mb-4 border ${
-          active.verdict === 'FAKE'
-            ? 'bg-rose-50/80 dark:bg-rose-950/30 border-rose-200/90 dark:border-rose-900/60 text-rose-900 dark:text-rose-300'
-            : 'bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-200/90 dark:border-emerald-900/60 text-emerald-900 dark:text-emerald-300'
-        }`}
-      >
-        {active.verdict === 'FAKE' ? (
-          <AlertTriangle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-        ) : (
-          <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-        )}
-        <div className="space-y-0.5 flex-1">
-          <div className="flex items-center justify-between">
-            <strong className="font-bold">
-              มติเอกฉันท์ (Consensus): {active.verdict === 'FAKE' ? 'ตรวจพบข่าวปลอม/บิดเบือน' : 'ข้อมูลสุขภาพน่าเชื่อถือ'}
-            </strong>
-            <span className="font-mono text-[10px] opacity-80">Agreement: 100%</span>
-          </div>
-          <p className="text-[11px] leading-relaxed opacity-90">{active.reason}</p>
         </div>
       </div>
 

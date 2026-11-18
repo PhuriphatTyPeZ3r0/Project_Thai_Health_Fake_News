@@ -74,11 +74,11 @@ export default function StudioPage() {
 
       <main className="container mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8 flex-1">
         {/* Top Breadcrumb & Studio Header */}
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-4">
+        <div className="mb-6 flex items-center justify-between border-b border-zinc-200/80 dark:border-zinc-800/80 pb-4">
           <div className="flex items-center gap-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-300 dark:hover:border-emerald-800 transition shadow-2xs"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:border-emerald-300 dark:border-emerald-800 transition shadow-2xs"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               <span>กลับหน้าหลัก (Landing)</span>
@@ -87,11 +87,6 @@ export default function StudioPage() {
             <span className="text-xs font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-md border border-emerald-200 dark:border-emerald-800/80">
               Interactive Studio
             </span>
-          </div>
-
-          <div className="flex items-center gap-2 text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
-            <span>Dual Inference Mode:</span>
-            <strong className="text-zinc-800 dark:text-zinc-200">WangchanBERTa + TF-IDF</strong>
           </div>
         </div>
 
