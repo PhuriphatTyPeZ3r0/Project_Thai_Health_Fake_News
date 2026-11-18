@@ -1,45 +1,44 @@
 {
-  "accuracy": 0.9128,
-  "precision": 0.9091,
-  "recall": 0.9302,
-  "f1_macro": 0.9122,
-  "f1_fake": 0.9195,
+  "accuracy": 0.8941,
+  "precision": 0.8897,
+  "recall": 0.8796,
+  "f1_macro": 0.8872,
+  "f1_fake": 0.8846,
   "confusion_matrix": [
     [
-      133,
-      16
+      134,
+      15
     ],
     [
-      12,
-      160
+      19,
+      153
     ]
   ],
   "classification_report": {
     "fact": {
-      "precision": 0.9172413793103448,
-      "recall": 0.8926174496644296,
-      "f1-score": 0.9047619047619048,
+      "precision": 0.8758,
+      "recall": 0.8993,
+      "f1-score": 0.8874,
       "support": 149.0
     },
     "fake": {
-      "precision": 0.9090909090909091,
-      "recall": 0.9302325581395349,
-      "f1-score": 0.9195402298850575,
+      "precision": 0.8897,
+      "recall": 0.8796,
+      "f1-score": 0.8846,
       "support": 172.0
     },
-    "accuracy": 0.9127725856697819,
+    "accuracy": 0.8941,
     "macro avg": {
-      "precision": 0.9131661442006269,
-      "recall": 0.9114250039019822,
-      "f1-score": 0.9121510673234812,
+      "precision": 0.8828,
+      "recall": 0.8895,
+      "f1-score": 0.8872,
       "support": 321.0
     },
     "weighted avg": {
-      "precision": 0.9128741491616127,
-      "recall": 0.9127725856697819,
-      "f1-score": 0.9126805088777376,
+      "precision": 0.8832,
+      "recall": 0.8941,
+      "f1-score": 0.8859,
       "support": 321.0
     }
-  },
-  "model_id": "Kitkhachon/wcb-limesoda-fakenews"
+  }
 }
