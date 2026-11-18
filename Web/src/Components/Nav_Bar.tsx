@@ -15,22 +15,14 @@ export const Navbar: React.FC<NavbarProps> = ({ mode = 'landing', onOpenMetrics 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/85 dark:border-zinc-800 dark:bg-zinc-950/85 backdrop-blur-md transition-colors duration-200">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        {/* Brand & Project Info */}
-        <Link href="/" className="flex items-center gap-3 group focus:outline-hidden">
+        {/* Brand Logo Only */}
+        <Link
+          href="/"
+          className="flex items-center group focus:outline-hidden"
+          title="Thai Health Fake-News Detector - หน้าหลัก"
+          aria-label="Thai Health Fake-News Detector"
+        >
           <AppLogo size={36} />
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-sm sm:text-base font-bold text-slate-900 dark:text-zinc-100 tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                Thai Health Fake-News Detector
-              </h1>
-              <span className="hidden md:inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-[10px] font-mono text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700">
-                v1.0 • NLP
-              </span>
-            </div>
-            <p className="text-[11px] text-slate-500 dark:text-zinc-400 font-medium">
-              1323404 Mini Project • CAI PIM (Term 1/2569)
-            </p>
-          </div>
         </Link>
 
         {/* Center Nav Links (Landing Mode Only) */}
