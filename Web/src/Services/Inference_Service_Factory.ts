@@ -11,13 +11,8 @@ export class InferenceServiceFactory {
 
   public static getEngine(): IInferenceEngine {
     if (!this.instance) {
-      const modalUrl = process.env.MODAL_API_URL || process.env.NEXT_PUBLIC_MODAL_API_URL;
-      if (modalUrl) {
-        this.instance = new ModalFastApiInferenceEngine(modalUrl);
-      } else {
-        // Fallback to mock engine if no backend URL is set
-        this.instance = new MockInferenceEngine();
-      }
+      const modalUrl = process.env.MODAL_API_URL || process.env.NEXT_PUBLIC_MODAL_API_URL || 'http://localhost:8000';
+      this.instance = new ModalFastApiInferenceEngine(modalUrl);
     }
     return this.instance;
   }

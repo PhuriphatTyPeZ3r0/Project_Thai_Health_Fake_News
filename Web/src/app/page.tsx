@@ -253,9 +253,9 @@ export default function LandingPage() {
                 </div>
 
                 <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono">
-                  <span className="text-zinc-500">Macro F1: <strong>0.812</strong></span>
-                  <span className="text-zinc-500">Fake F1: <strong>0.830</strong></span>
-                  <span className="text-zinc-500">Accuracy: <strong>82.5%</strong></span>
+                  <span className="text-zinc-500">Macro F1: <strong>0.897</strong></span>
+                  <span className="text-zinc-500">Fake F1: <strong>0.902</strong></span>
+                  <span className="text-zinc-500">Accuracy: <strong>89.7%</strong></span>
                 </div>
               </div>
 
@@ -297,41 +297,41 @@ export default function LandingPage() {
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Accuracy (ความถูกต้องโดยรวม)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">82.5%</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">89.7%</td>
                     <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">91.4%</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+8.9%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+1.7%</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Precision (ความแม่นยำ)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">81.2%</td>
-                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">90.8%</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+9.6%</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">92.1%</td>
+                    <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">93.2%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+1.1%</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Recall (ความครอบคลุม)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">80.4%</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">88.4%</td>
                     <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">91.0%</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+10.6%</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+2.6%</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Macro F1-Score
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.812</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.897</td>
                     <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.909</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.097</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.012</td>
                   </tr>
                   <tr className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/30 transition">
                     <td className="py-3 px-4 sm:px-6 font-sans font-semibold text-slate-900 dark:text-white">
                       Fake F1-Score (เน้นจับข่าวปลอม)
                     </td>
-                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.830</td>
+                    <td className="py-3 px-4 sm:px-6 text-slate-600 dark:text-zinc-400">0.902</td>
                     <td className="py-3 px-4 sm:px-6 font-bold text-emerald-600 dark:text-emerald-400">0.925</td>
-                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.095</td>
+                    <td className="py-3 px-4 sm:px-6 text-emerald-600 dark:text-emerald-400">+0.023</td>
                   </tr>
                 </tbody>
               </table>
