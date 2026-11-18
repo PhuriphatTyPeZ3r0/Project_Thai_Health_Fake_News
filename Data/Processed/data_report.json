@@ -1,0 +1,52 @@
+{
+  "raw_total": 7139,
+  "raw_tags": {
+    "Undefined": 2540,
+    "Fake News": 2522,
+    "Fact News": 2077
+  },
+  "after_drop_undefined": 4599,
+  "after_drop_short": 4587,
+  "exact_conflict_docs_dropped": 10,
+  "after_exact_dedup": 3356,
+  "near_conflict_docs_dropped": 15,
+  "after_near_dedup": 3201,
+  "final_labels": {
+    "fact(0)": 1481,
+    "fake(1)": 1720
+  },
+  "splits": {
+    "train": {
+      "total": 2560,
+      "fact(0)": 1184,
+      "fake(1)": 1376,
+      "fake_ratio": 0.5375,
+      "chars_median": 1643,
+      "chars_p95": 5058,
+      "chars_max": 20358
+    },
+    "val": {
+      "total": 320,
+      "fact(0)": 148,
+      "fake(1)": 172,
+      "fake_ratio": 0.5375,
+      "chars_median": 1685,
+      "chars_p95": 4390,
+      "chars_max": 11973
+    },
+    "test": {
+      "total": 321,
+      "fact(0)": 149,
+      "fake(1)": 172,
+      "fake_ratio": 0.5358,
+      "chars_median": 1641,
+      "chars_p95": 4539,
+      "chars_max": 9810
+    }
+  },
+  "leakage_exact_overlap": {
+    "train&val": 0,
+    "train&test": 0,
+    "val&test": 0
+  }
+}
