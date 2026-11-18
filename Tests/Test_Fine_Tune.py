@@ -1,7 +1,7 @@
 """Offline checks for the long-text windowing in Src/Fine_Tune.py (no training, no network)."""
 import numpy as np
 
-from Src.Fine_Tune import MAX_CHUNKS, MAX_LENGTH, aggregate_by_doc, make_chunks
+from Src.Windowing import MAX_CHUNKS, MAX_LENGTH, aggregate_by_doc, make_chunks
 
 
 class FakeTok:

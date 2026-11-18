@@ -5,7 +5,8 @@ import { ApiResponse, ModelComparisonDTO, ModelType, PredictionResultDTO } from 
 
 /**
  * OOP Controller: NewsAnalysisController
- * Orchestrates request validation via NewsEvaluation domain model and dispatches to IInferenceEngine.
+ * Orchestrates request validation via NewsEvaluation domain model and dispatches directly to IInferenceEngine.
+ * Operates against live remote inference without automatic mock fallback.
  */
 export class NewsAnalysisController {
   private readonly engine: IInferenceEngine;
@@ -42,29 +43,13 @@ export class NewsAnalysisController {
       };
     } catch (err: any) {
       console.error('[NewsAnalysisController] Inference error:', err);
-      // Fallback to mock if remote engine failed
-      try {
-        const mockFallback = InferenceServiceFactory.createEngine('mock');
-        const fallbackResult = await mockFallback.predict(evaluation.getText(), modelType);
-        return {
-          status: 200,
-          body: {
-            success: true,
-            data: {
-              ...fallbackResult,
-              model: `${fallbackResult.model} (Auto-Fallback)`,
-            },
-          },
-        };
-      } catch (fallbackErr: any) {
-        return {
-          status: 502,
-          body: {
-            success: false,
-            error: 'ไม่สามารถติดต่อบริการประมวลผลโมเดลได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง',
-          },
-        };
-      }
+      return {
+        status: 502,
+        body: {
+          success: false,
+          error: 'ไม่สามารถติดต่อบริการประมวลผลโมเดล Modal ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง หรือตรวจสอบสถานะเซิร์ฟเวอร์',
+        },
+      };
     }
   }
 
@@ -95,14 +80,11 @@ export class NewsAnalysisController {
       };
     } catch (err: any) {
       console.error('[NewsAnalysisController] Comparison error:', err);
-      // Fallback to mock
-      const mockFallback = InferenceServiceFactory.createEngine('mock');
-      const fallbackResult = await mockFallback.compare(evaluation.getText());
       return {
-        status: 200,
+        status: 502,
         body: {
-          success: true,
-          data: fallbackResult,
+          success: false,
+          error: 'ไม่สามารถติดต่อบริการประมวลผลโมเดล Modal ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง หรือตรวจสอบสถานะเซิร์ฟเวอร์',
         },
       };
     }

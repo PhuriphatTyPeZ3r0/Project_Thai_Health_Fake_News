@@ -4,20 +4,18 @@ import { MockInferenceEngine } from './Mock_Inference_Engine';
 
 /**
  * Service Factory Pattern: InferenceServiceFactory
- * Instantiates the appropriate inference service based on environment and availability.
+ * Instantiates the production ModalFastApiInferenceEngine or testing MockInferenceEngine.
  */
 export class InferenceServiceFactory {
   private static instance: IInferenceEngine | null = null;
 
   public static getEngine(): IInferenceEngine {
     if (!this.instance) {
-      const modalUrl = process.env.MODAL_API_URL || process.env.NEXT_PUBLIC_MODAL_API_URL;
-      if (modalUrl) {
-        this.instance = new ModalFastApiInferenceEngine(modalUrl);
-      } else {
-        // Fallback to mock engine if no backend URL is set
-        this.instance = new MockInferenceEngine();
-      }
+      const modalUrl =
+        process.env.MODAL_API_URL ||
+        process.env.NEXT_PUBLIC_MODAL_API_URL ||
+        'https://kitkhachon-xx--thai-health-fakenews-inference-fastapi-app.us-east.modal.run';
+      this.instance = new ModalFastApiInferenceEngine(modalUrl);
     }
     return this.instance;
   }
@@ -26,6 +24,7 @@ export class InferenceServiceFactory {
     if (type === 'modal') {
       return new ModalFastApiInferenceEngine(url);
     }
+    // Reserved for offline automated testing (Verify_System_Cases)
     return new MockInferenceEngine();
   }
 }

@@ -92,6 +92,11 @@ class BaselinePredictor(BasePredictor):
                         "(train it with Src.Baseline and ship the .joblib)"
                     )
                 import joblib
+                import sys
+                from Src import Baseline
+                main_mod = sys.modules.get('__main__')
+                if main_mod and not hasattr(main_mod, 'thai_tokenizer'):
+                    setattr(main_mod, 'thai_tokenizer', Baseline.thai_tokenizer)
                 self.pipeline = joblib.load(self.model_path)
 
     def status(self) -> Dict[str, Any]:
