@@ -92,11 +92,11 @@ npm run dev
 
 กลุ่มโครงงาน Mini-Project (6 คน):
 
-| รหัสบทบาท | รหัสนักศึกษา | ชื่อ-นามสกุล | บัญชี GitHub | บทบาทหลักในโครงงาน |
-| :---: | :---: | :--- | :--- | :--- |
-| **P1** | `6752300135` | ชลธร หรั่งศิริ | [@chonlatorn230](https://github.com/chonlatorn230) | **Data Engineer:** โหลด LimeSoda, Data Cleaning, Stratified Split 80/10/10 |
-| **P2** | `6752300488` | มิตรภักดิ์ กล่อมใจ | [@MittrapakXXV](https://github.com/MittrapakXXV) | **Baseline & Metrics:** พัฒนา `metrics.py`, สร้างโมเดล TF-IDF + Logistic Regression |
-| **P3** | `6752300216` | กฤษขจร จิรวงศ์รุ่งเรือง | [@Kitkhachon-xx](https://github.com/Kitkhachon-xx) | **AI Engineer:** Fine-tuning WangchanBERTa บน Colab GPU, Push Hugging Face Hub |
-| **P4** | `6752300607` | ปรัชญา ชอบมะรัง | [@first025](https://github.com/first025) | **QA & Error Analyst:** พัฒนาชุดทดสอบ 20 เคส, วิเคราะห์ข้อผิดพลาด, Compare Models |
-| **P5** | `6752300313` | ภูริพัฒน์ เหมกุล | [@PhuriphatTyPeZ3r0](https://github.com/PhuriphatTyPeZ3r0) | **Full Stack Engineer:** พัฒนา Next.js MVC/OOP WebApp, FastAPI บน Modal, Deploy Vercel |
-| **P6** | `6752300968` | เมธีรา ภูภักดี | [@maeteerapoopakdee-spec](https://github.com/maeteerapoopakdee-spec) | **Project Lead & Doc:** บริหารจัดการ Git Repo, เอกสาร README, สไลด์นำเสนอ, Live Demo |
+| รหัสบทบาท | รหัสนักศึกษา | ชื่อ-นามสกุล | บัญชี GitHub | กิ่งพัฒนางาน (Git Branch) | บทบาทหลักในโครงงาน |
+| :---: | :---: | :--- | :--- | :--- | :--- |
+| **P1** | `6752300135` | ชลธร หรั่งศิริ | [@chonlatorn230](https://github.com/chonlatorn230) | `feat/6752300135-data-pipeline` | **Data Engineer:** โหลด LimeSoda, Data Cleaning, Stratified Split 80/10/10 |
+| **P2** | `6752300488` | มิตรภักดิ์ กล่อมใจ | [@MittrapakXXV](https://github.com/MittrapakXXV) | `feat/6752300488-baseline-metrics` | **Baseline & Metrics:** พัฒนา `metrics.py`, สร้างโมเดล TF-IDF + Logistic Regression |
+| **P3** | `6752300216` | กฤษขจร จิรวงศ์รุ่งเรือง | [@Kitkhachon-xx](https://github.com/Kitkhachon-xx) | `feat/6752300216-finetune-wcb` | **AI Engineer:** Fine-tuning WangchanBERTa บน Colab GPU, Push Hugging Face Hub |
+| **P4** | `6752300607` | ปรัชญา ชอบมะรัง | [@first025](https://github.com/first025) | `feat/6752300607-compare-testing` | **QA & Error Analyst:** พัฒนาชุดทดสอบ 20 เคส, วิเคราะห์ข้อผิดพลาด, Compare Models |
+| **P5** | `6752300313` | ภูริพัฒน์ เหมกุล | [@PhuriphatTyPeZ3r0](https://github.com/PhuriphatTyPeZ3r0) | `feat/6752300313-nextjs-mvc-webapp` | **Full Stack Engineer:** พัฒนา Next.js MVC/OOP WebApp, FastAPI บน Modal, Deploy Vercel |
+| **P6** | `6752300968` | เมธีรา ภูภักดี | [@maeteerapoopakdee-spec](https://github.com/maeteerapoopakdee-spec) | `feat/6752300968-docs-slides-integration` | **Project Lead & Doc:** บริหารจัดการ Git Repo, เอกสาร README, สไลด์นำเสนอ, Live Demo |

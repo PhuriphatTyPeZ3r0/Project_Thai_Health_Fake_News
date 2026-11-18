@@ -6,14 +6,14 @@
 
 ## 📌 สมาชิกและบทบาทหน้าที่ (Team Roster & Assignments)
 
-| รหัสบทบาท | รหัสนักศึกษา | ชื่อ-นามสกุล | บัญชี GitHub | บทบาทหลัก | งานที่รับผิดชอบ |
-| :---: | :---: | :--- | :--- | :--- | :--- |
-| **P1** | `6752300135` | ชลธร หรั่งศิริ | [@chonlatorn230](https://github.com/chonlatorn230) | Data Engineer | D1, D2, D3 (Stage 1-2: โหลดข้อมูล, คลีน, Stratified Split 80/10/10) |
-| **P2** | `6752300488` | มิตรภักดิ์ กล่อมใจ | [@MittrapakXXV](https://github.com/MittrapakXXV) | Baseline + Metrics | B1, B2, B3 (Stage 3: metrics.py, TF-IDF + LogReg Baseline) |
-| **P3** | `6752300216` | กฤษขจร จิรวงศ์รุ่งเรือง | [@Kitkhachon-xx](https://github.com/Kitkhachon-xx) | AI Engineer | F1, F2, F3 (Stage 4-5: Fine-tune WangchanBERTa บน Colab GPU, Push Hub) |
-| **P4** | `6752300607` | ปรัชญา ชอบมะรัง | [@first025](https://github.com/first025) | QA & Error Analyst | C1, T1, T2 (Stage 6, 9: เปรียบเทียบโมเดล, วิเคราะห์ Error ≥20 ตัว, System Test) |
-| **P5** | `6752300313` | ภูริพัฒน์ เหมกุล | [@PhuriphatTyPeZ3r0](https://github.com/PhuriphatTyPeZ3r0) | Full Stack Engineer | S1, S2, S3 (Stage 7-8: Next.js MVC/OOP WebApp, FastAPI บน Modal, Deploy Vercel) |
-| **P6** | `6752300968` | เมธีรา ภูภักดี | [@maeteerapoopakdee-spec](https://github.com/maeteerapoopakdee-spec) | Project Lead & Doc | R1, R2, R3 (Stage 0, 10: Setup Repo, README 4 หัวข้อ, สไลด์นำเสนอ, Integration) |
+| รหัสบทบาท | รหัสนักศึกษา | ชื่อ-นามสกุล | บัญชี GitHub | กิ่งพัฒนางาน (Git Branch) | บทบาทหลัก | งานที่รับผิดชอบ |
+| :---: | :---: | :--- | :--- | :--- | :--- | :--- |
+| **P1** | `6752300135` | ชลธร หรั่งศิริ | [@chonlatorn230](https://github.com/chonlatorn230) | `feat/6752300135-data-pipeline` | Data Engineer | D1, D2, D3 (Stage 1-2: โหลดข้อมูล, คลีน, Stratified Split 80/10/10) |
+| **P2** | `6752300488` | มิตรภักดิ์ กล่อมใจ | [@MittrapakXXV](https://github.com/MittrapakXXV) | `feat/6752300488-baseline-metrics` | Baseline + Metrics | B1, B2, B3 (Stage 3: metrics.py, TF-IDF + LogReg Baseline) |
+| **P3** | `6752300216` | กฤษขจร จิรวงศ์รุ่งเรือง | [@Kitkhachon-xx](https://github.com/Kitkhachon-xx) | `feat/6752300216-finetune-wcb` | AI Engineer | F1, F2, F3 (Stage 4-5: Fine-tune WangchanBERTa บน Colab GPU, Push Hub) |
+| **P4** | `6752300607` | ปรัชญา ชอบมะรัง | [@first025](https://github.com/first025) | `feat/6752300607-compare-testing` | QA & Error Analyst | C1, T1, T2 (Stage 6, 9: เปรียบเทียบโมเดล, วิเคราะห์ Error ≥20 ตัว, System Test) |
+| **P5** | `6752300313` | ภูริพัฒน์ เหมกุล | [@PhuriphatTyPeZ3r0](https://github.com/PhuriphatTyPeZ3r0) | `feat/6752300313-nextjs-mvc-webapp` | Full Stack Engineer | S1, S2, S3 (Stage 7-8: Next.js MVC/OOP WebApp, FastAPI บน Modal, Deploy Vercel) |
+| **P6** | `6752300968` | เมธีรา ภูภักดี | [@maeteerapoopakdee-spec](https://github.com/maeteerapoopakdee-spec) | `feat/6752300968-docs-slides-integration` | Project Lead & Doc | R1, R2, R3 (Stage 0, 10: Setup Repo, README 4 หัวข้อ, สไลด์นำเสนอ, Integration) |
 
 ---
 
