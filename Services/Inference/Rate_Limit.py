@@ -34,8 +34,8 @@ class RateLimitMiddleware:
     def __init__(
         self,
         app: ASGIApp,
-        limit_per_min: int = int(os.getenv("RATE_LIMIT_PER_MIN", "30")),
-        max_concurrent: int = int(os.getenv("MAX_CONCURRENT", "4")),
+        limit_per_min: int = int(os.getenv("RATE_LIMIT_PER_MIN", "500")),
+        max_concurrent: int = int(os.getenv("MAX_CONCURRENT", "20")),
         window_s: float = 60.0,
         clock: Callable[[], float] = time.monotonic,
     ):

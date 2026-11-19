@@ -81,8 +81,8 @@ image = (
             "WANGCHANBERTA_REVISION": MODEL_REVISION,
             "BASELINE_MODEL_PATH": BASELINE_PATH,
             "TOKENIZERS_PARALLELISM": "false",
-            "RATE_LIMIT_PER_MIN": "30",  # per client address, per container
-            "MAX_CONCURRENT": "4",  # simultaneous inference requests per container
+            "RATE_LIMIT_PER_MIN": "500",  # per client address, per container
+            "MAX_CONCURRENT": "20",  # simultaneous inference requests per container
         }
     )
     .add_local_dir(ROOT / "Src", f"{REMOTE_ROOT}/Src", copy=True, ignore=["__pycache__", "*.pyc"])
