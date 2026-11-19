@@ -101,7 +101,7 @@ image = (
     timeout=600,
     max_containers=2,  # hard cap on GPUs (cost + abuse); per-client limits live in Rate_Limit.py
 )
-@modal.concurrent(max_inputs=8)  # one container serves several requests; Rate_Limit caps in-flight at MAX_CONCURRENT
+@modal.concurrent(max_inputs=20)  # one container serves several requests; Rate_Limit caps in-flight at MAX_CONCURRENT
 @modal.asgi_app()
 def fastapi_app():
     """Wrap the FastAPI application for Modal serverless ASGI serving."""
