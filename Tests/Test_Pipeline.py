@@ -5,6 +5,12 @@ try:
 except ImportError:
     pytest = None
 
+try:
+    import torch
+    HAS_TORCH = True
+except ImportError:
+    HAS_TORCH = False
+
 from Src.Metrics import compute
 from Src.Predict import predict, _baseline_predictor, _wcb_predictor
 
@@ -35,6 +41,7 @@ def test_predict_baseline():
     assert res["label"] in ["fake", "fact"]
 
 
+@pytest.mark.skipif(not HAS_TORCH, reason="PyTorch not installed in local environment")
 def test_predict_wangchanberta():
     res = predict("อย. ย้ำเตือน อย่าหลงเชื่อผลิตภัณฑ์เสริมอาหารอวดอ้างสรรพคุณเกินจริง", model_type="wangchanberta")
     assert "label" in res
@@ -42,6 +49,7 @@ def test_predict_wangchanberta():
     assert res["label"] in ["fake", "fact"]
 
 
+@pytest.mark.skipif(not HAS_TORCH, reason="PyTorch not installed in local environment")
 def test_predict_both_comparison():
     res = predict("สมุนไพรต้มน้ำรักษาโรคเบาหวาน", model_type="both")
     assert "wangchanberta" in res
